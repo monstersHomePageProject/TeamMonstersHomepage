@@ -10,6 +10,13 @@
   </style>
 <meta charset="UTF-8">
 <title>MainCentreImage</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
+   <script>
+   $(document).ready(function() {
+	   $('img[usemap]').rwdImageMaps();
+   });
+   </script>
 </head>
 <body>
 <div class = "imageMap">
@@ -31,12 +38,5 @@
 </map>
 
 </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
-   <script>
-   $(document).ready(function() {
-	   $('img[usemap]').rwdImageMaps();
-   });
-   </script>
 </body>
 </html>

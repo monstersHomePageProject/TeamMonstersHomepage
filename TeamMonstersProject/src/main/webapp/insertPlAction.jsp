@@ -4,8 +4,8 @@
 <%@ page import = "java.io.PrintWriter" %>
 <jsp:useBean id="p" class = "monsters.model.PlayerDTO" scope = "page" />
 <jsp:setProperty property="*" name="p" />
-<jsp:useBean id="service" class = "monsters.model.PlayerDAO" scope = "application" />
-<jsp:setProperty property="player" name ="service" value = "<%= p %>" />
+<jsp:useBean id="pservice" class = "monsters.model.PlayerDAO" scope = "application" />
+<jsp:setProperty property="player" name ="pservice" value = "<%= p %>" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,7 @@
 </head>
 <body>
 <%
-	int result = service.playerInsert();
+	int result = pservice.playerInsert();
 	if(result == 1){
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
