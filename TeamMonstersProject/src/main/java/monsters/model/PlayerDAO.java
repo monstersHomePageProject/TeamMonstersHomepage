@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 public class PlayerDAO {
@@ -61,7 +60,7 @@ public class PlayerDAO {
 		// get data
 		while (result.next()) {
 			player = new PlayerDTO(result.getInt("pl_id"), result.getString("pl_name"), result.getInt("pl_position"),
-					result.getDate("pl_birth"), result.getInt("pl_backNo"), result.getString("pl_physical"),
+					result.getString("pl_birth"), result.getInt("pl_backNo"), result.getString("pl_physical"),
 					result.getInt("Pl_PnH"), result.getString("pl_subject"), result.getString("pl_contents"),
 					result.getDate("regdate"), result.getString("pl_imgname"), result.getInt("pl_like"));
 
@@ -93,7 +92,7 @@ public class PlayerDAO {
 
 		while (result.next()) {
 			player = new PlayerDTO(result.getInt("pl_id"), result.getString("pl_name"), result.getInt("pl_position"),
-					result.getDate("pl_birth"), result.getInt("pl_backNo"), result.getString("pl_physical"),
+					result.getString("pl_birth"), result.getInt("pl_backNo"), result.getString("pl_physical"),
 					result.getInt("Pl_PnH"), result.getString("pl_subject"), result.getString("pl_contents"),
 					result.getDate("regdate"), result.getString("pl_imgname"), result.getInt("pl_like"));
 		}
@@ -106,28 +105,40 @@ public class PlayerDAO {
 		return player;
 	}
 
+	public Date stringToDate(PlayerDTO player)
+    {
+        String pl_birth = player.getPl_birth();
+        
+        Date birthday = Date.valueOf(pl_birth);
+        
+        return birthday;
+ 
+    }
+	
 	// 선수 등록 (Insert)
 	public int playerInsert() throws SQLException {
 		Connection conn = pool.getConnection();
 		// sql문 작성
+
 		String sql = "INSERT INTO TBL_Player\r\n"
 				+ "    (pl_id, pl_name, pl_position, pl_birth, pl_backNo, pl_physical, Pl_PnH, pl_subject, pl_contents, regdate, pl_imgname, pl_like)\r\n"
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "VALUES (TBL_Player_SEQ.nextval, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, ?, 0)";
 		// Statement 생성
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		// sql ? 값에 MemberDTO 객체의 필드 값을 집어넣음.
-		pstmt.setInt(1, player.getPl_id());
-		pstmt.setString(2, player.getPl_name());
-		pstmt.setInt(3, player.getPl_position());
-		pstmt.setDate(4, (Date) player.getPl_birth());
-		pstmt.setInt(5, player.getPl_backNo());
-		pstmt.setString(6, player.getPl_physical());
-		pstmt.setInt(7, player.getPl_PnH());
-		pstmt.setString(8, player.getPl_subject());
-		pstmt.setString(9, player.getPl_contents());
-		pstmt.setDate(10, (Date) player.getRegdate());
-		pstmt.setString(11, player.getPl_imgName());
-		pstmt.setInt(12, player.getPl_like());
+		pstmt.setString(1, player.getPl_name());
+		pstmt.setInt(2, player.getPl_position());
+		pstmt.setDate(3, stringToDate(player));
+		pstmt.setInt(4, player.getPl_backNo());
+		pstmt.setString(5, player.getPl_physical());
+		pstmt.setInt(6, player.getPl_PnH());
+		pstmt.setString(7, player.getPl_subject());
+		pstmt.setString(8, player.getPl_contents());
+		pstmt.setString(9, player.getPl_imgName());
+		
+		
+		System.out.println(sql);
+		System.out.println(player);
 
 		// result에 쿼리 실행 값을 할당
 		result = pstmt.executeUpdate();
@@ -142,6 +153,7 @@ public class PlayerDAO {
 
 		Connection conn = pool.getConnection();
 		// sql문 작성
+		
 		String sql = "UPDATE TBL_Player SET\r\n" + "    pl_name = ?, \r\n" + "    pl_position = ?, \r\n"
 				+ "    pl_birth = ?, \r\n" + "    pl_backNo = ?, \r\n" + "    pl_physical = ?, \r\n"
 				+ "    Pl_PnH = ?, \r\n" + "    pl_subject = ?, \r\n" + "    pl_contents = ?, \r\n"
@@ -151,13 +163,13 @@ public class PlayerDAO {
 		// sql ? 값에 PlayerDTO 객체의 필드 값을 집어넣음.
 		pstmt.setString(1, player.getPl_name());
 		pstmt.setInt(2, player.getPl_position());
-		pstmt.setDate(3, (java.sql.Date) player.getPl_birth());
+		pstmt.setDate(3, stringToDate(player));
 		pstmt.setInt(4, player.getPl_backNo());
 		pstmt.setString(5, player.getPl_physical());
 		pstmt.setInt(6, player.getPl_PnH());
 		pstmt.setString(7, player.getPl_subject());
 		pstmt.setString(8, player.getPl_contents());
-		pstmt.setDate(9, (java.sql.Date) player.getRegdate());
+		pstmt.setDate(9, player.getRegdate());
 		pstmt.setString(10, player.getPl_imgName());
 		pstmt.setInt(11, player.getPl_like());
 		pstmt.setInt(12, player.getPl_id());
