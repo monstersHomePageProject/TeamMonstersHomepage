@@ -51,9 +51,9 @@
 %>
 	<!-- 포지션별 선수 리스트 목록-->
     <div class="player-card">
-        <img src="./img/<%=player.getPl_imgName() %>" alt="선수1 이미지">
+        <a href="positionListAction.jsp?id=<%=player.getPl_id() %>"><img src="./img/<%=player.getPl_imgName() %>" alt="선수1 이미지"></a>
             <div class="info">
-                <h2><%=player.getPl_name() %></h2>
+                <a href="positionListAction.jsp?id=<%=player.getPl_id() %>"><h2><%=player.getPl_name() %></h2></a>
                 <h4><%=player.getPl_subject() %></h4>
                 <p><%=player.getPl_contents() %></p>
             </div>
