@@ -1,7 +1,9 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="monsters.model.*"%>
 <jsp:useBean id="playerList" type="java.util.ArrayList" scope="request"/>
+<jsp:useBean id="service" type="monsters.model.PlayerDAO" scope="request"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,8 +31,11 @@
   </style>
 </head>
 <body>
+<%
+	String position = (String)request.getAttribute("position"); 
+%>
 <div>
-	<h2></h2> <!-- 포지션명이 들어감. -->
+	<h2><%=position%></h2> <!-- 포지션명이 들어감. -->
 </div>
 <!-- mainAction.jsp에서 결과를 넘겨받음. -->
 <%
