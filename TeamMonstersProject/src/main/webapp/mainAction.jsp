@@ -14,8 +14,10 @@
 </head>
 <body>
 	<%
-		ArrayList playerList = service.selectPosition();
+		ArrayList<PlayerDTO> playerList = service.selectPosition();
+		String position = service.changePositionType(player.getPl_position()); //int의 포지션을 포지션 이름으로 변환
 		request.setAttribute("playerList", playerList);
+		request.setAttribute("position", position);
 	%>
 <jsp:forward page="positionList.jsp"/>
 </body>
