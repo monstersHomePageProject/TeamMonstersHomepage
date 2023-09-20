@@ -2,8 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="monsters.model.*"%>
-<jsp:useBean id="playerList" type="java.util.ArrayList" scope="request"/>
-<jsp:useBean id="service" type="monsters.model.PlayerDAO" scope="request"/>
+<jsp:useBean id="playerList" type="java.util.ArrayList" scope="session"/>
+<jsp:useBean id="pservice" type="monsters.model.PlayerDAO" scope="session"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +32,7 @@
 </head>
 <body>
 <%
-	String position = (String)request.getAttribute("position"); 
+	String position = (String)session.getAttribute("position"); 
 %>
 <div>
 	<h2><%=position%></h2> <!-- 포지션명이 들어감. -->
@@ -51,9 +51,13 @@
 %>
 	<!-- 포지션별 선수 리스트 목록-->
     <div class="player-card">
-        <a href="positionListAction.jsp?id=<%=player.getPl_id() %>"><img src="./img/<%=player.getPl_imgName() %>" alt="선수1 이미지"></a>
+        <a href="positionListAction.jsp?pl_id=<%=player.getPl_id() %>" target="right">
+  			<img src="./img/<%=player.getPl_imgName() %>" alt="선수1 이미지">
+		</a>
             <div class="info">
-                <a href="positionListAction.jsp?id=<%=player.getPl_id() %>"><h2><%=player.getPl_name() %></h2></a>
+                <h2>
+                <a href="positionListAction.jsp?pl_id=<%=player.getPl_id() %>" target="right"><%=player.getPl_name() %></a>
+                </h2>
                 <h4><%=player.getPl_subject() %></h4>
                 <p><%=player.getPl_contents() %></p>
             </div>

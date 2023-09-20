@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter, monsters.model.*" %> <!-- 자바스크립트 문장을 작성하기 위해 import -->
-<jsp:useBean id="service" type="monsters.model.MemberDAO" scope="session"/>
+<jsp:useBean id="mservice" type="monsters.model.MemberDAO" scope="session"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +13,10 @@
 		int result = (Integer)session.getAttribute("loginResult");
 		
 		if(result == 1){
-			System.out.println(service.getUser().getMem_name());
+			System.out.println(mservice.getUser().getMem_name());
 			%>
 			<script>
-				let memberName = '<%=service.getUser().getMem_name() %>';
+				let memberName = '<%=mservice.getUser().getMem_name() %>';
 				alert(memberName+'님, 환영합니다.');
 				location.href = 'main.html';
 			</script>
