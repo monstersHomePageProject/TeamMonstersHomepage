@@ -46,7 +46,7 @@
 %>
 	<!-- 포지션별 선수 리스트 목록-->
     <div class="player-card">
-        <img src="이미지 파일 경로" alt="선수1 이미지">
+        <img src="./img/<%=player.getPl_imgName() %>" alt="선수1 이미지">
             <div class="info">
                 <h2><%=player.getPl_name() %></h2>
                 <h4><%=player.getPl_subject() %></h4>
