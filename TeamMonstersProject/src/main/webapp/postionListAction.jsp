@@ -4,7 +4,7 @@
 <jsp:useBean id="service" class="monsters.model.PlayerDAO" scope="request"/>
 <jsp:useBean id="p" class="monsters.model.PlayerDTO" scope="request"/>
 <jsp:setProperty property="pl_id" name="p"/>
-<jsp:setProperty property="player" name="service" value="<%=p%>"/>
+<jsp:setProperty property="player" name="service" value="<%=p %>"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,5 +20,6 @@
 		request.setAttribute("player", pd);
 		request.setAttribute("PnH", PnH);
 	%>
+<jsp:forward page="Player.jsp"/>
 </body>
 </html>
