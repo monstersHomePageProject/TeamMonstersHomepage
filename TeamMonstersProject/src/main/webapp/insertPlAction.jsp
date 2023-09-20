@@ -14,13 +14,12 @@
 </head>
 <body>
 <%
-System.out.println(p);
 	int result = service.playerInsert();
 	if(result == 1){
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('선수등록이 완료되었습니다.')");
-		script.println("location.href = 'main.html'");
+		script.println("location.href = 'mainCenterList.jsp'");
 		script.println("</script>");
 	}else{
 		PrintWriter script = response.getWriter();
