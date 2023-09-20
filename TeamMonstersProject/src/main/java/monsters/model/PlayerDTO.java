@@ -1,6 +1,8 @@
 package monsters.model;
 
-import java.util.Date;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class PlayerDTO {
 	 // num 
@@ -10,7 +12,7 @@ public class PlayerDTO {
     // position 
     private int pl_position;
     // birth 
-    private Date pl_birth;
+    private String pl_birth;
     // backNo 
     private int pl_backNo;
     // phys 
@@ -42,7 +44,7 @@ public class PlayerDTO {
 	 * @param pl_imgName
 	 * @param pl_like
 	 */
-	public PlayerDTO(int pl_id, String pl_name, int pl_position, Date pl_birth, int pl_backNo, String pl_physical,
+	public PlayerDTO(int pl_id, String pl_name, int pl_position, String pl_birth, int pl_backNo, String pl_physical,
 			int pl_PnH, String pl_subject, String pl_contents, Date regdate, String pl_imgName, int pl_like) {
 		super();
 		this.pl_id = pl_id;
@@ -74,7 +76,7 @@ public class PlayerDTO {
 	public int getPl_position() {
 		return pl_position;
 	}
-	public Date getPl_birth() {
+	public String getPl_birth() {
 		return pl_birth;
 	}
 	public int getPl_backNo() {
@@ -112,7 +114,7 @@ public class PlayerDTO {
 	public void setPl_position(int pl_position) {
 		this.pl_position = pl_position;
 	}
-	public void setPl_birth(Date pl_birth) {
+	public void setPl_birth(String pl_birth){
 		this.pl_birth = pl_birth;
 	}
 	public void setPl_backNo(int pl_backNo) {
