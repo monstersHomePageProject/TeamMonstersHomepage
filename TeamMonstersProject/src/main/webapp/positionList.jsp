@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="monsters.model.*"%>
-<jsp:useBean id="positionList" type="java.util.ArrayList" scope="request"/>
+<jsp:useBean id="playerList" type="java.util.ArrayList" scope="request"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +29,9 @@
   </style>
 </head>
 <body>
+<div>
+	<h2></h2> <!-- 포지션명이 들어감. -->
+</div>
 <!-- mainAction.jsp에서 결과를 넘겨받음. -->
 <%
 	if(playerList.size()==0){ 
@@ -45,9 +48,9 @@
     <div class="player-card">
         <img src="이미지 파일 경로" alt="선수1 이미지">
             <div class="info">
-                <h2><%=PlayerDTO.getPl_name() %></h2>
-                <h4><%=PlayerDTO.getPl_Subject() %></h4>
-                <p><%=PlayerDTO.getPl_Contents %></p>
+                <h2><%=player.getPl_name() %></h2>
+                <h4><%=player.getPl_subject() %></h4>
+                <p><%=player.getPl_contents() %></p>
             </div>
     </div>
 <%
