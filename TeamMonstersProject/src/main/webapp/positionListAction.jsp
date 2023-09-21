@@ -17,8 +17,10 @@
 		PlayerDTO pd = pservice.playerDetail();
 		System.out.println(pd.getPl_name()+ "  :  " + pd);
 		String PnH = pservice.changePnHType(pd.getPl_PnH());
+		String position = pservice.changePositionType(pd.getPl_position());
 		request.setAttribute("player", pd);
 		request.setAttribute("PnH", PnH);
+		request.setAttribute("position", position);
 	%>
 <jsp:forward page="Player.jsp"/>
 </body>

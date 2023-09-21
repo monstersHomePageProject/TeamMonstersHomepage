@@ -16,6 +16,7 @@ public class PlayerDAO {
 	private ConnectionPool pool;
 	private int result;
 	private PlayerDTO player; // 웹 브라우저로부터 받은 값을 가지고 만들어진 MemberDTO의 객체를 할당.
+	private MemberDTO member;
 
 	public PlayerDAO() {
 		super();
@@ -42,6 +43,15 @@ public class PlayerDAO {
 		this.player = player;
 	}
 
+	
+	public MemberDTO getMember() {
+		return member;
+	}
+
+	public void setMember(MemberDTO member) {
+		this.member = member;
+	}
+
 	// 포지션별 선수 리스트 (Select)
 	public ArrayList<PlayerDTO> selectPosition() throws SQLException {
 
@@ -62,7 +72,7 @@ public class PlayerDAO {
 			player = new PlayerDTO(result.getInt("pl_id"), result.getString("pl_name"), result.getInt("pl_position"),
 					result.getString("pl_birth"), result.getInt("pl_backNo"), result.getString("pl_physical"),
 					result.getInt("Pl_PnH"), result.getString("pl_subject"), result.getString("pl_contents"),
-					result.getDate("regdate"), result.getString("pl_imgname"), result.getInt("pl_like"));
+					result.getDate("regdate"), result.getString("pl_imgname"), result.getInt("pl_like"), result.getString("pl_memName"));
 
 			playerList.add(player);
 		}
@@ -94,7 +104,7 @@ public class PlayerDAO {
 			player = new PlayerDTO(result.getInt("pl_id"), result.getString("pl_name"), result.getInt("pl_position"),
 					result.getString("pl_birth"), result.getInt("pl_backNo"), result.getString("pl_physical"),
 					result.getInt("Pl_PnH"), result.getString("pl_subject"), result.getString("pl_contents"),
-					result.getDate("regdate"), result.getString("pl_imgname"), result.getInt("pl_like"));
+					result.getDate("regdate"), result.getString("pl_imgname"), result.getInt("pl_like"), result.getString("pl_memName"));
 		}
 		// 선수 정보 출력(Console)
 		System.out.println(player);
@@ -121,8 +131,8 @@ public class PlayerDAO {
 		// sql문 작성
 
 		String sql = "INSERT INTO TBL_Player\r\n"
-				+ "    (pl_id, pl_name, pl_position, pl_birth, pl_backNo, pl_physical, Pl_PnH, pl_subject, pl_contents, regdate, pl_imgname, pl_like)\r\n"
-				+ "VALUES (TBL_Player_SEQ.nextval, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, ?, 0)";
+				+ "    (pl_id, pl_name, pl_position, pl_birth, pl_backNo, pl_physical, Pl_PnH, pl_subject, pl_contents, regdate, pl_imgname, pl_like, pl_memName)\r\n"
+				+ "VALUES (TBL_Player_SEQ.nextval, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, ?, 0, ?)";
 		// Statement 생성
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		// sql ? 값에 MemberDTO 객체의 필드 값을 집어넣음.
@@ -135,6 +145,8 @@ public class PlayerDAO {
 		pstmt.setString(7, player.getPl_subject());
 		pstmt.setString(8, player.getPl_contents());
 		pstmt.setString(9, player.getPl_imgName());
+		pstmt.setString(10, member.getMem_name());
+		
 		
 		
 		System.out.println(sql);

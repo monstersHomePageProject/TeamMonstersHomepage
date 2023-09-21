@@ -30,7 +30,7 @@ public class PlayerDTO {
     // like 
     private int pl_like;
     // pl_memId
-    private String pl_memId;
+    private String pl_memName;
 	
     /**
 	 * @param pl_id
@@ -45,7 +45,7 @@ public class PlayerDTO {
 	 * @param regdate
 	 * @param pl_imgName
 	 * @param pl_like
-	 * @param pl_memId
+	 * @param pl_memName
 	 */
 	
 
@@ -56,7 +56,7 @@ public class PlayerDTO {
 
     public PlayerDTO(int pl_id, String pl_name, int pl_position, String pl_birth, int pl_backNo, String pl_physical,
 			int pl_PnH, String pl_subject, String pl_contents, Date regdate, String pl_imgName, int pl_like,
-			String pl_memId) {
+			String pl_memName) {
 		super();
 		this.pl_id = pl_id;
 		this.pl_name = pl_name;
@@ -70,7 +70,7 @@ public class PlayerDTO {
 		this.regdate = regdate;
 		this.pl_imgName = pl_imgName;
 		this.pl_like = pl_like;
-		this.pl_memId = pl_memId;
+		this.pl_memName = pl_memName;
 	}
 
 	//getter
@@ -110,8 +110,8 @@ public class PlayerDTO {
 	public int getPl_like() {
 		return pl_like;
 	}
-	public String getPl_memId() {
-		return pl_memId;
+	public String getPl_memName() {
+		return pl_memName;
 	}
 	
 
@@ -152,8 +152,8 @@ public class PlayerDTO {
 	public void setPl_like(int pl_like) {
 		this.pl_like = pl_like;
 	}
-	public void setPl_memId(String pl_memId) {
-		this.pl_memId = pl_memId;
+	public void setPl_memName(String pl_memName) {
+		this.pl_memName = pl_memName;
 	}
 
 	@Override
@@ -189,7 +189,7 @@ public class PlayerDTO {
 		return "PlayerDTO [pl_id=" + pl_id + ", pl_name=" + pl_name + ", pl_position=" + pl_position + ", pl_birth="
 				+ pl_birth + ", pl_backNo=" + pl_backNo + ", pl_physical=" + pl_physical + ", pl_PnH=" + pl_PnH
 				+ ", pl_subject=" + pl_subject + ", pl_contents=" + pl_contents + ", regdate=" + regdate
-				+ ", pl_imgName=" + pl_imgName + ", pl_like=" + pl_like + ", pl_memId=" + pl_memId + "]";
+				+ ", pl_imgName=" + pl_imgName + ", pl_like=" + pl_like + ", pl_memId=" + pl_memName + "]";
 	}
 
 
