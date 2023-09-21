@@ -52,8 +52,8 @@
     	등록일:<p><%=player.getRegdate() %></p>
     </div>
     <div class="Btn">
-    	<a href="updatePl.jsp?id=<%=player.getPl_id() %>"><input type="button" value="변경"></a>
-		<a href="deletePlAction.jsp?id=<%=player.getPl_id() %>"><input type="button" value="삭제"></a>
+    	<a href="updatePl.jsp?pl_id=<%=player.getPl_id() %>"><input type="button" value="변경"></a>
+		<a href="deletePlAction.jsp?pl_id=<%=player.getPl_id() %>"><input type="button" value="삭제"></a>
     </div>
 </body>
 </html>

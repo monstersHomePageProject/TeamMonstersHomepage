@@ -187,7 +187,7 @@ public class PlayerDAO {
 	public int playerDelete() throws SQLException {
 		Connection conn = pool.getConnection();
 
-		String sql = "DELETE * FROM TBL_PLAYER WHERE pl_id = ?";
+		String sql = "DELETE FROM TBL_PLAYER WHERE pl_id = ?";
 
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, player.getPl_id());
