@@ -14,7 +14,10 @@
 </head>
 <body>
 <%
+
+	System.out.println(p);
 	int result = pservice.playerInsert();
+	System.out.println(p);
 	if(result == 1){
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
