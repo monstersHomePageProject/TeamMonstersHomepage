@@ -3,7 +3,7 @@
 <%@ page import="monsters.model.*, java.util.*" %>
 <jsp:useBean id="pservice" class="monsters.model.PlayerDAO" scope="session"/>
 <jsp:useBean id="player" class="monsters.model.PlayerDTO" scope="session"/>
-<jsp:useBean id="mservice" type="monsters.model.MemberDAO" scope="session"/>
+<jsp:useBean id="mservice" class="monsters.model.MemberDAO" scope="session"/>
 <jsp:setProperty property="pl_position" name="player"/>
 <jsp:setProperty property="player" name="pservice" value="<%=player %>"/>
 
@@ -14,6 +14,7 @@
 <title>mainAction</title>
 </head>
 <body>
+<!-- 로그인을 하지 않고 들어왔을 때의 error 처리 필요 -->
 	<%
 		ArrayList<PlayerDTO> playerList = pservice.selectPosition();
 		String position = pservice.changePositionType(player.getPl_position()); //int의 포지션을 포지션 이름으로 변환
