@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" errorPage="playerError.jsp"%>
 <%@page import="monsters.model.*"%>
 <jsp:useBean id="player" type="monsters.model.PlayerDTO" scope="request"/>
 <jsp:useBean id="pservice" type="monsters.model.PlayerDAO" scope="request"/>
@@ -32,6 +32,7 @@
 </head>
 <body>
 	<%
+		//response.sendRedirect("playerError.jsp"); //일부러 오류를 내어 에러페이지 동작 확인하는 코드
 		String PnH =(String)request.getAttribute("PnH");
 	%>
 	<div class="player-card">
