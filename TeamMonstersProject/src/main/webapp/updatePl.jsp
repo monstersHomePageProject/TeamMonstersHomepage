@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <%@page import="monsters.model.*"%>
-<jsp:useBean id="player" class="monsters.model.PlayerDTO" scope="request"/>
+<jsp:useBean id="player" type="monsters.model.PlayerDTO" scope="request"/>
 <jsp:useBean id="pservice" type="monsters.model.PlayerDAO" scope="application"/>
 <jsp:useBean id="mservice" type="monsters.model.MemberDAO" scope="application"/>
 <jsp:useBean id="member" type = "monsters.model.MemberDTO" scope = "session" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,6 +64,9 @@
 </style>
 </head>
 <body>
+<%
+	System.out.println("updatePl :: "+player);
+%>
 <form name="updateForm" action="updatePlAction.jsp" onsubmit="return checkInput(insertForm);" method="get" enctype="multipart/form-data">
 <div class = "bbplayer">
 	<!-- 1. 로고 -->
@@ -126,6 +130,7 @@
     <div class = "field">
         <b>이미지</b>
         <input name="pl_imgName" id = "fileUpload" type = "file" accept = ".jpg, .jpeg, .png, .svg" onchange="changeValue(this)" value = "<%=player.getPl_imgName() %>">
+        <input name="pl_id" type="hidden" value = "<%=player.getPl_id() %>"> 
     </div>
     <input type="submit" value="등록하기">
 </div>
