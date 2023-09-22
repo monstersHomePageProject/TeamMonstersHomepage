@@ -54,7 +54,20 @@
     </div>
     <div class="Btn">
     	<a href="playerAction.jsp?pl_id=<%=player.getPl_id() %>"><input type="button" value="변경"></a>
-		<a href="deletePlAction.jsp?pl_id=<%=player.getPl_id() %>"><input type="button" value="삭제"></a>
+		<input type="button" value="삭제" onclick="confirmDelete()">
     </div>
+ <script type="text/javascript">
+ function confirmDelete() {
+	        var confirmation = confirm("정말 삭제하시겠습니까?");
+
+	        if (confirmation) {
+	            // 확인을 누르면 deletePlAction 페이지로 이동
+	            var pl_id = '<%= player.getPl_id() %>';
+	            window.location.href = 'deletePlAction.jsp?pl_id=' + pl_id;
+	        } else {
+	            // 유저가 취소를 누르면 아무것도 하지 않음
+	        }
+	}
+ </script>
 </body>
 </html>
