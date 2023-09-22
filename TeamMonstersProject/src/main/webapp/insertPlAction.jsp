@@ -5,7 +5,10 @@
 <jsp:useBean id="p" class = "monsters.model.PlayerDTO" scope = "page" />
 <jsp:setProperty property="*" name="p" />
 <jsp:useBean id="pservice" class = "monsters.model.PlayerDAO" scope = "application" />
+<jsp:useBean id="mservice" type = "monsters.model.MemberDAO" scope = "session" />
 <jsp:setProperty property="player" name ="pservice" value = "<%= p %>" />
+<jsp:setProperty property="member" name ="pservice" value = "<%=mservice.getUser() %>" />
+
 <!DOCTYPE html>
 <html>
 <head>

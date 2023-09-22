@@ -34,12 +34,13 @@
 	<%
 		//response.sendRedirect("playerError.jsp"); //일부러 오류를 내어 에러페이지 동작 확인하는 코드
 		String PnH =(String)request.getAttribute("PnH");
+		String position =(String)request.getAttribute("position");
 	%>
 	<div class="player-card">
         <img src="이미지 파일 경로" alt="선수1 이미지">
             <div class="info">
                 <h2><%=player.getPl_name() %></h2>
-                <h2>포지션</h2><h4><%=player.getPl_position() %></h4>
+                <h2>포지션</h2><h4><%=position %></h4>
                 <h2>생년월일</h2><p><%=player.getPl_birth() %></p>
                 <h2>등번호</h2><p><%=player.getPl_backNo() %></p>
                 <h2>신체정보</h2><p><%=player.getPl_physical() %></p>
@@ -48,7 +49,7 @@
             </div>
     </div>
     <div class="regdate">
-    	작성자:<p><%=mservice.getUser().getMem_name() %></p>
+    	작성자:<p><%=player.getPl_memName() %></p>
     	등록일:<p><%=player.getRegdate() %></p>
     </div>
     <div class="Btn">
