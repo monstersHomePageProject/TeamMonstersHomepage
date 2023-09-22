@@ -189,7 +189,7 @@ public class PlayerDTO {
 		return "PlayerDTO [pl_id=" + pl_id + ", pl_name=" + pl_name + ", pl_position=" + pl_position + ", pl_birth="
 				+ pl_birth + ", pl_backNo=" + pl_backNo + ", pl_physical=" + pl_physical + ", pl_PnH=" + pl_PnH
 				+ ", pl_subject=" + pl_subject + ", pl_contents=" + pl_contents + ", regdate=" + regdate
-				+ ", pl_imgName=" + pl_imgName + ", pl_like=" + pl_like + ", pl_memId=" + pl_memName + "]";
+				+ ", pl_imgName=" + pl_imgName + ", pl_like=" + pl_like + ", pl_memName=" + pl_memName + "]";
 	}
 
 

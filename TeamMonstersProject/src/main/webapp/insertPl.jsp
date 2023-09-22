@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "monsters.model.*" %>
-<jsp:useBean id="mservice" type = "monsters.model.MemberDAO" scope = "session" />
+<jsp:useBean id="mservice" type = "monsters.model.MemberDAO" scope = "application" />
+<jsp:useBean id="member" type = "monsters.model.MemberDTO" scope = "session" />
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <meta charset="UTF-8">
 <title>선수등록화면</title>
-
-
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
 
@@ -63,6 +61,7 @@
 </style>
 </head>
 <body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	function changeValue(input) {
     var selectedFile = input.files[0];

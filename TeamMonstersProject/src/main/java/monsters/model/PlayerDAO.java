@@ -131,7 +131,6 @@ public class PlayerDAO {
 		// sql문 작성
 
 		String sql = "INSERT INTO TBL_Player\r\n"
-				+ "    (pl_id, pl_name, pl_position, pl_birth, pl_backNo, pl_physical, Pl_PnH, pl_subject, pl_contents, regdate, pl_imgname, pl_like, pl_memName)\r\n"
 				+ "VALUES (TBL_Player_SEQ.nextval, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, ?, 0, ?)";
 		// Statement 생성
 		PreparedStatement pstmt = conn.prepareStatement(sql);

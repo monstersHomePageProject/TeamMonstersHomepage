@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@page import="monsters.model.*"%>
 <jsp:useBean id="playerList" type="java.util.ArrayList" scope="session"/>
-<jsp:useBean id="pservice" type="monsters.model.PlayerDAO" scope="session"/>
+<jsp:useBean id="pservice" type="monsters.model.PlayerDAO" scope="application"/>
 <!DOCTYPE html>
 <html>
 <head>
