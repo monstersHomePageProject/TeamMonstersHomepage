@@ -166,10 +166,10 @@ public class PlayerDAO {
 		Connection conn = pool.getConnection();
 		// sql문 작성
 		
-		String sql = "UPDATE TBL_Player SET\r\n" + "    pl_name = ?, \r\n" + "    pl_position = ?, \r\n"
-				+ "    pl_birth = ?, \r\n" + "    pl_backNo = ?, \r\n" + "    pl_physical = ?, \r\n"
-				+ "    Pl_PnH = ?, \r\n" + "    pl_subject = ?, \r\n" + "    pl_contents = ?, \r\n"
-				+ "    pl_imgname = ?, \r\n" + "    pl_like = ?\r\n" + "WHERE pl_id = ?";
+		String sql = "UPDATE TBL_Player SET\r\n" 
+				+ "    pl_name = ?, pl_position = ?, pl_birth = ?, \r\n" 
+				+ "    pl_backNo = ?, pl_physical = ?, Pl_PnH = ?, pl_subject = ?, pl_contents = ?, \r\n" 
+				+ "    regdate = sysdate, pl_imgname = ?, pl_like = ?, pl_memName = ? WHERE pl_id = ?";
 		// Statement 생성
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		// sql ? 값에 PlayerDTO 객체의 필드 값을 집어넣음.
@@ -181,11 +181,14 @@ public class PlayerDAO {
 		pstmt.setInt(6, player.getPl_PnH());
 		pstmt.setString(7, player.getPl_subject());
 		pstmt.setString(8, player.getPl_contents());
-		pstmt.setDate(9, player.getRegdate());
-		pstmt.setString(10, player.getPl_imgName());
-		pstmt.setInt(11, player.getPl_like());
+		pstmt.setString(9, player.getPl_imgName());
+		pstmt.setInt(10, player.getPl_like());
+		pstmt.setString(11, member.getMem_name());
 		pstmt.setInt(12, player.getPl_id());
 
+		System.out.println(player.getPl_name()+"/"+player.getPl_position()+"/"+stringToDate(player)+"/"+player.getPl_backNo()+"/"+player.getPl_physical()+"/"
+		+player.getPl_PnH()+"/"+player.getPl_subject()+"/"+player.getPl_contents()+"/"+player.getPl_imgName()+"/"+player.getPl_like()+"/"+member.getMem_name()+"/"+player.getPl_id());
+		
 		// result에 쿼리 실행 값을 할당
 		result = pstmt.executeUpdate();
 
