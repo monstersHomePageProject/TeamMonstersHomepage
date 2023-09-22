@@ -37,7 +37,7 @@
 		String position =(String)request.getAttribute("position");
 	%>
 	<div class="player-card">
-        <img src="이미지 파일 경로" alt="선수1 이미지">
+        <img src="./img/<%=player.getPl_imgName() %>" alt="선수1 이미지">
             <div class="info">
                 <h2><%=player.getPl_name() %></h2>
                 <h2>포지션</h2><h4><%=position %></h4>
@@ -53,7 +53,7 @@
     	등록일:<p><%=player.getRegdate() %></p>
     </div>
     <div class="Btn">
-    	<a href="updatePl.jsp?pl_id=<%=player.getPl_id() %>"><input type="button" value="변경"></a>
+    	<a href="playerAction.jsp?pl_id=<%=player.getPl_id() %>"><input type="button" value="변경"></a>
 		<a href="deletePlAction.jsp?pl_id=<%=player.getPl_id() %>"><input type="button" value="삭제"></a>
     </div>
 </body>

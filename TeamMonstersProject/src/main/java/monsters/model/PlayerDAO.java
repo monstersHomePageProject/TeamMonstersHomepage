@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class PlayerDAO {
@@ -89,7 +90,8 @@ public class PlayerDAO {
 	public PlayerDTO playerDetail() throws SQLException {
 		Connection conn = pool.getConnection();
 		// sql문 작성
-		String sql = "SELECT * FROM TBL_PLAYER WHERE pl_id = ?";
+		String sql = "SELECT pl_id, pl_name, pl_position, TO_CHAR(pl_birth, 'YYYY-MM-DD') AS pl_birth, pl_backNo, pl_physical, Pl_PnH, pl_subject, pl_contents, regdate, pl_imgname, pl_like, pl_memName\r\n"
+				+ "FROM TBL_PLAYER WHERE pl_id = ?";
 		// Statement 생성
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		// sql ? 값에 PlayerDTO 객체의 필드 값을 집어넣음.
@@ -118,7 +120,6 @@ public class PlayerDAO {
 	public Date stringToDate(PlayerDTO player)
     {
         String pl_birth = player.getPl_birth();
-        
         Date birthday = Date.valueOf(pl_birth);
         
         return birthday;
