@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" %>
+    pageEncoding="UTF-8" errorPage="updatePlError.jsp"%>
 <%@page import="monsters.model.*"%>
 <jsp:useBean id="player" type="monsters.model.PlayerDTO" scope="request"/>
 <jsp:useBean id="pservice" type="monsters.model.PlayerDAO" scope="application"/>
@@ -66,6 +66,7 @@
 <body>
 <%
 	System.out.println("updatePl :: "+player);
+	//response.sendRedirect("updatePlError.jsp"); //일부러 오류를 내어 에러페이지 동작 확인하는 코드
 %>
 <form name="updateForm" action="updatePlAction.jsp" onsubmit="return checkInput(insertForm);" method="get" enctype="multipart/form-data">
 <div class = "bbplayer">
