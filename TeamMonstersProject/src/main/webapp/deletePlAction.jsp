@@ -3,7 +3,7 @@
 <%@ page import = "java.io.PrintWriter" %>
 <jsp:useBean id="p" class = "monsters.model.PlayerDTO" scope = "request" />
 <jsp:setProperty property="pl_id" name="p"/>
-<jsp:useBean id = "pservice" class = "monsters.model.PlayerDAO" scope = "request" />
+<jsp:useBean id = "pservice" type = "monsters.model.PlayerDAO" scope = "application" />
 <jsp:setProperty property="player" name ="pservice" value = "<%= p %>" />
 <!DOCTYPE html>
 <html>

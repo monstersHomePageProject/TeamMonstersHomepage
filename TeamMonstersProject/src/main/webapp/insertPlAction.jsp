@@ -5,9 +5,9 @@
 <jsp:useBean id="p" class = "monsters.model.PlayerDTO" scope = "page" />
 <jsp:setProperty property="*" name="p" />
 <jsp:useBean id="pservice" class = "monsters.model.PlayerDAO" scope = "application" />
-<jsp:useBean id="mservice" type = "monsters.model.MemberDAO" scope = "session" />
+<jsp:useBean id="member" type = "monsters.model.MemberDTO" scope = "session" />
 <jsp:setProperty property="player" name ="pservice" value = "<%= p %>" />
-<jsp:setProperty property="member" name ="pservice" value = "<%=mservice.getUser() %>" />
+<jsp:setProperty property="member" name ="pservice" value = "<%=member %>" />
 
 <!DOCTYPE html>
 <html>
@@ -19,8 +19,8 @@
 <%
 
 	System.out.println(p);
+	System.out.println("insertPlAction :: "+member);
 	int result = pservice.playerInsert();
-	System.out.println(p);
 	if(result == 1){
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
