@@ -53,7 +53,7 @@ public class MemberDAO {
 		//Statement 생성
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		//sql ? 값에 MemberDTO 객체의 id 집어넣음.
-		pstmt.setString(1, user.getMem_id());
+		pstmt.setString(1, user.getMemId());
 		
 		//ResultSet에 쿼리 실행 값을 할당
 		ResultSet rs = pstmt.executeQuery();
@@ -63,7 +63,7 @@ public class MemberDAO {
 		//rs.next()를 통해 sql을 통한 값이 저장되었는지 확인
 		if(rs.next()) {
 			//아이디 비밀번호가 일치하면 1 반환
-			if(rs.getString("mem_pwd").equals(user.getMem_pwd())) {
+			if(rs.getString("mem_pwd").equals(user.getMemPwd())) {
 				//select문으로 가져온 레코드로 MemberDTO 객체 생성
 				user = new MemberDTO(rs.getString("mem_id"), rs.getString("mem_role"), rs.getString("mem_pwd"), rs.getString("mem_name"),
 									rs.getString("mem_email"), rs.getString("mem_phone"));  
@@ -93,12 +93,12 @@ public class MemberDAO {
 		//Statement 생성
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		//sql ? 값에 MemberDTO 객체의 필드 값을 집어넣음.
-		pstmt.setString(1, user.getMem_id());
-		pstmt.setString(2, user.getMem_role());
-		pstmt.setString(3, user.getMem_pwd());
-		pstmt.setString(4, user.getMem_name());
-		pstmt.setString(5, user.getMem_email());
-		pstmt.setString(6, user.getMem_phone());
+		pstmt.setString(1, user.getMemId());
+		pstmt.setString(2, user.getMemRole());
+		pstmt.setString(3, user.getMemPwd());
+		pstmt.setString(4, user.getMemName());
+		pstmt.setString(5, user.getMemEmail());
+		pstmt.setString(6, user.getMemPhone());
 		
 		//result에 쿼리 실행 값을 할당
 		result = pstmt.executeUpdate();
