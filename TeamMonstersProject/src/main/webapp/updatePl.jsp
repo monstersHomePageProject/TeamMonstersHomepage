@@ -76,12 +76,14 @@
 	<!-- 2. 필드 -->
 	<div class = "field">
         <b>선수 이름</b>
-        <input name = "pl_name" type = "text" value = "<%=player.getPl_name() %>" required>
+        <input name = "plName" type = "text" value = "<%=player.getPlName()%>" required>
     </div>
-    <%int defaultValue = player.getPl_position(); %>
+    <%
+    int defaultValue = player.getPlPosition();
+    %>
 	<div class = "field">
         <b>포지션</b>
-        <select name = "pl_position" required>
+        <select name = "plPosition" required>
             <option value="">포지션 선택</option>
             <option value="1" <%=(defaultValue==1 ? "selected" : "")%>>1. 외야수</option>
             <option value="2" <%=(defaultValue==2 ? "selected" : "")%>>2. 내야수</option>
@@ -94,21 +96,23 @@
 	<div class="field birth">
         <b>생년월일</b>
         <div>
-            <input name = "pl_birth" type="date" id="date" max="2050-12-31" min="1900-01-01" value="<%=player.getPl_birth() %>">
+            <input name = "plBirth" type="date" id="date" max="2050-12-31" min="1900-01-01" value="<%=player.getPlBirth()%>">
         </div>
     </div>
 	<div class = "field">
         <b>등번호</b>
-        <input name = "pl_backNo" type="text" onkeypress="return checkNumber(event)" value = "<%=player.getPl_backNo() %>" required>
+        <input name = "plBackNo" type="text" onkeypress="return checkNumber(event)" value = "<%=player.getPlBackNo()%>" required>
     </div>
 	<div class = "field">
         <b>신체정보</b>
-        <input name = "pl_physical" type = "text" value = "<%=player.getPl_physical() %>">
+        <input name = "plPhysical" type = "text" value = "<%=player.getPlPhysical()%>">
     </div>
-    <%int defaultValue2 = player.getPl_PnH(); %>
+    <%
+    int defaultValue2 = player.getPlPnH();
+    %>
 	<div class = "field">
         <b>투타</b>
-        <select name="pl_PnH" value ="<%=player.getPl_PnH() %>" required>
+        <select name="plPnH" value ="<%=player.getPlPnH()%>" required>
             <option value="">투타 선택</option>
             <option value="1" <%=(defaultValue2==1 ? "selected" : "")%>>1. 우투우타</option>
             <option value="2" <%=(defaultValue2==2 ? "selected" : "")%>>2. 우투좌타</option>
@@ -122,16 +126,16 @@
     </div>
 	<div class = "field">
         <b>Subject</b>
-        <textarea name="pl_subject" style="resize: none;" maxlength="100" cols = "60" rows="5" ><%=player.getPl_subject() %></textarea>
+        <textarea name="plSubject" style="resize: none;" maxlength="100" cols = "60" rows="5" ><%=player.getPlSubject()%></textarea>
     </div>
 	<div class = "field">
         <b>Content</b>
-        <textarea name="pl_contents" style="resize: none;" maxlength="200" cols = "60"  rows="5"><%=player.getPl_contents() %></textarea>
+        <textarea name="plContents" style="resize: none;" maxlength="200" cols = "60"  rows="5"><%=player.getPlContents()%></textarea>
     </div>
     <div class = "field">
         <b>이미지</b>
-        <input name="pl_imgName" id = "fileUpload" type = "file" accept = ".jpg, .jpeg, .png, .svg" onchange="changeValue(this)" value = "<%=player.getPl_imgName() %>">
-        <input name="pl_id" type="hidden" value = "<%=player.getPl_id() %>"> 
+        <input name="plImgName" id = "fileUpload" type = "file" accept = ".jpg, .jpeg, .png, .svg" onchange="changeValue(this)" value = "<%=player.getPlImgName()%>">
+        <input name="plId" type="hidden" value = "<%=player.getPlId()%>"> 
     </div>
     <input type="submit" value="등록하기">
 </div>
@@ -141,7 +145,7 @@
 	function changeValue(input) {
     var selectedFile = input.files[0];
     //기존 선수 이미지
-    var originalFile = <%=player.getPl_imgName() %>;
+    var originalFile = <%=player.getPlImgName()%>;
     var validExtensions = ["jpg", "jpeg", "png", "svg"];
     
     if (selectedFile) {
@@ -160,17 +164,17 @@
     }
 	}
     function checkInput(form) {
-        var pl_physical = form.pl_physical.value;
+        var pl_physical = form.plPhysical.value;
         
         var regex = /^[0-9]+$/; // 
         var regex2 = /^\d{1,3}cm, \d{1,3}kg$/; // 숫자 1-3자리, "cm, " 문자열, 숫자 1-3자리, "kg" 문자열 형식을 검사하는 정규식
 		
-        if (!regex2.test(pl_physical)) {
+        if (!regex2.test(plPhysical)) {
             alert("허용되지 않는 형식입니다. 형식은 (숫자)cm, (숫자)kg 여야 합니다.");
             return false; // 유효성 검사 실패
         }
         
-        if(!regex.test(form.pl_backNo.value)){
+        if(!regex.test(form.plBackNo.value)){
             alert("허용되지 않는 형식입니다. 등번호는 숫자만 입력해야 합니다.");
             return false; // 유효성 검사 실패
         }

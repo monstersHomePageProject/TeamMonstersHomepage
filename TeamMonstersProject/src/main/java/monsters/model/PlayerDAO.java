@@ -61,7 +61,7 @@ public class PlayerDAO {
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 
 		// sql ? 값에 PlayerDTO 객체의 id 집어넣음.
-		pstmt.setInt(1, player.getPl_position());
+		pstmt.setInt(1, player.getPlPosition());
 
 		// execute (sql)
 		ResultSet result = pstmt.executeQuery();
@@ -95,7 +95,7 @@ public class PlayerDAO {
 		// Statement 생성
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		// sql ? 값에 PlayerDTO 객체의 필드 값을 집어넣음.
-		pstmt.setInt(1, player.getPl_id());
+		pstmt.setInt(1, player.getPlId());
 
 		// result에 쿼리 실행 값을 할당
 		ResultSet result = pstmt.executeQuery();
@@ -119,7 +119,7 @@ public class PlayerDAO {
 
 	public Date stringToDate(PlayerDTO player)
     {
-        String pl_birth = player.getPl_birth();
+        String pl_birth = player.getPlBirth();
         Date birthday = Date.valueOf(pl_birth);
         
         return birthday;
@@ -136,15 +136,15 @@ public class PlayerDAO {
 		// Statement 생성
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		// sql ? 값에 MemberDTO 객체의 필드 값을 집어넣음.
-		pstmt.setString(1, player.getPl_name());
-		pstmt.setInt(2, player.getPl_position());
+		pstmt.setString(1, player.getPlName());
+		pstmt.setInt(2, player.getPlPosition());
 		pstmt.setDate(3, stringToDate(player));
-		pstmt.setInt(4, player.getPl_backNo());
-		pstmt.setString(5, player.getPl_physical());
-		pstmt.setInt(6, player.getPl_PnH());
-		pstmt.setString(7, player.getPl_subject());
-		pstmt.setString(8, player.getPl_contents());
-		pstmt.setString(9, player.getPl_imgName());
+		pstmt.setInt(4, player.getPlBackNo());
+		pstmt.setString(5, player.getPlPhysical());
+		pstmt.setInt(6, player.getPlPnH());
+		pstmt.setString(7, player.getPlSubject());
+		pstmt.setString(8, player.getPlContents());
+		pstmt.setString(9, player.getPlImgName());
 		pstmt.setString(10, member.getMemName());
 		
 		
@@ -173,21 +173,21 @@ public class PlayerDAO {
 		// Statement 생성
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		// sql ? 값에 PlayerDTO 객체의 필드 값을 집어넣음.
-		pstmt.setString(1, player.getPl_name());
-		pstmt.setInt(2, player.getPl_position());
+		pstmt.setString(1, player.getPlName());
+		pstmt.setInt(2, player.getPlPosition());
 		pstmt.setDate(3, stringToDate(player));
-		pstmt.setInt(4, player.getPl_backNo());
-		pstmt.setString(5, player.getPl_physical());
-		pstmt.setInt(6, player.getPl_PnH());
-		pstmt.setString(7, player.getPl_subject());
-		pstmt.setString(8, player.getPl_contents());
-		pstmt.setString(9, player.getPl_imgName());
-		pstmt.setInt(10, player.getPl_like());
+		pstmt.setInt(4, player.getPlBackNo());
+		pstmt.setString(5, player.getPlPhysical());
+		pstmt.setInt(6, player.getPlPnH());
+		pstmt.setString(7, player.getPlSubject());
+		pstmt.setString(8, player.getPlContents());
+		pstmt.setString(9, player.getPlImgName());
+		pstmt.setInt(10, player.getPlLike());
 		pstmt.setString(11, member.getMemName());
-		pstmt.setInt(12, player.getPl_id());
+		pstmt.setInt(12, player.getPlId());
 
-		System.out.println(player.getPl_name()+"/"+player.getPl_position()+"/"+stringToDate(player)+"/"+player.getPl_backNo()+"/"+player.getPl_physical()+"/"
-		+player.getPl_PnH()+"/"+player.getPl_subject()+"/"+player.getPl_contents()+"/"+player.getPl_imgName()+"/"+player.getPl_like()+"/"+member.getMemName()+"/"+player.getPl_id());
+		System.out.println(player.getPlName()+"/"+player.getPlPosition()+"/"+stringToDate(player)+"/"+player.getPlBackNo()+"/"+player.getPlPhysical()+"/"
+		+player.getPlPnH()+"/"+player.getPlSubject()+"/"+player.getPlContents()+"/"+player.getPlImgName()+"/"+player.getPlLike()+"/"+member.getMemName()+"/"+player.getPlId());
 		
 		// result에 쿼리 실행 값을 할당
 		result = pstmt.executeUpdate();
@@ -205,7 +205,7 @@ public class PlayerDAO {
 		String sql = "DELETE FROM TBL_PLAYER WHERE pl_id = ?";
 
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, player.getPl_id());
+		pstmt.setInt(1, player.getPlId());
 		// result에 쿼리 실행 값을 할당
 
 		result = pstmt.executeUpdate();

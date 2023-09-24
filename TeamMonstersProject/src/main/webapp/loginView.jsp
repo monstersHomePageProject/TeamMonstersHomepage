@@ -18,7 +18,7 @@
 		System.out.println(member.getMemName());
 			%>
 			<script>
-				let memberName = '<member.getMemName()e() %>';
+				let memberName = '<%=member.getMemName() %>';
 				alert(memberName+'님, 환영합니다.');
 				location.href = 'main.html';
 			</script>

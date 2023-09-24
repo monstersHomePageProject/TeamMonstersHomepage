@@ -2,7 +2,7 @@
     pageEncoding="UTF-8" %>
 <%@ page import = "java.io.PrintWriter" %>
 <jsp:useBean id="p" class = "monsters.model.PlayerDTO" scope = "request" />
-<jsp:setProperty property="pl_id" name="p"/>
+<jsp:setProperty property="plId" name="p"/>
 <jsp:useBean id = "pservice" type = "monsters.model.PlayerDAO" scope = "application" />
 <jsp:setProperty property="player" name ="pservice" value = "<%= p %>" />
 <!DOCTYPE html>
@@ -13,12 +13,12 @@
 </head>
 <body>
 <%
-	//뒤로가기 막는 기능 추가 예정.
+//뒤로가기 막는 기능 추가 예정.
 	//response.sendRedirect("playerError.jsp"); //일부러 오류를 내어 에러페이지 동작 확인하는 코드
-	String name = pservice.playerDetail().getPl_name();
+	String name = pservice.playerDetail().getPlName();
 	int result = pservice.playerDelete();
 	if(result == 1){
-		%>
+%>
 		<script>
 		let memberName = '<%= name %>';
 		alert(memberName+'선수의 정보가 삭제되었습니다.');
