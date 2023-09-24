@@ -101,7 +101,8 @@
     </div>
 	<div class = "field">
         <b>등번호</b>
-        <input name = "plBackNo" type="text" onkeypress="return checkNumber(event)" value = "<%=player.getPlBackNo()%>" required>
+        <input name = "plBackNo" type="text" onkeypress="return checkNumber(event)" value = "<%=player.getPlBackNo()%>" required
+        		placeholder="3자리이하 숫자로만 입력해주세요.">
     </div>
 	<div class = "field">
         <b>신체정보</b>
