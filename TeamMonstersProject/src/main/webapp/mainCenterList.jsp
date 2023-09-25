@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "java.io.PrintWriter" %>
+<jsp:useBean id="pservice" type = "monsters.service.PlayerService" scope = "application" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,6 +38,63 @@
 	   $('img[usemap]').rwdImageMaps();
    });
    </script>
+<%
+	//선수 등록 체크
+	if(request.getAttribute("insertResult") != null){
+	int insertResult = (Integer)request.getAttribute("insertResult"); 
+		if(insertResult == 1){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('선수등록이 완료되었습니다.')");
+			script.println("location.href = 'mainCenterList.jsp'");
+			script.println("</script>");
+		}else{
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('선수등록에 실패했습니다.')");
+			script.println("history.back()");
+			script.println("</script>");
+		}
+	}
+
+	//선수 업데이트 체크
+	if(request.getAttribute("updateResult") != null){
+		int updateResult = (Integer)request.getAttribute("updateResult");
+		if(updateResult == 1){
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("alert('"+pservice.getPlayer().getPlName()+"선수정보 변경이 완료되었습니다.')");
+				script.println("location.href = 'positionListAction.jsp?plId="+pservice.getPlayer().getPlId()+"'");
+				script.println("</script>");
+			}else{
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("alert('선수정보 변경에 실패했습니다.')");
+				script.println("history.back()");
+				script.println("</script>");
+				}
+	}
+	
+	//선수 정보 삭제 체크
+	if(request.getAttribute("deleteResult") != null){
+		int deleteResult = (Integer)request.getAttribute("deleteResult");
+		String name = (String)request.getAttribute("deleteName");
+		if(deleteResult == 1){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('"+name+"선수정보 변경이 완료되었습니다.')");
+			script.println("location.href = 'mainCenterList.jsp'");
+			script.println("</script>");
+
+		}else{
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('선수삭제에 실패했습니다.')");
+			script.println("location.href = 'deletePlActionError.jsp'");
+			script.println("</script>");
+		}
+	}
+%>
 </head>
 <body>
 <div class = "imageMap">

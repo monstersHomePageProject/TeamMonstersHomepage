@@ -51,16 +51,14 @@
         margin-top: 5px;
     }
 </style>
-
-</head>
-<body>
 <%
+	if(request.getAttribute("resultData")!=null){
 	int result = (Integer)request.getAttribute("resultData");
 	if(result == 1){
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('회원가입이 완료되었습니다.')");
-		script.println("location.href = 'login.html'");
+		script.println("location.href = 'login.jsp'");
 		script.println("</script>");
 	}else{
 		PrintWriter script = response.getWriter();
@@ -69,7 +67,11 @@
 		script.println("history.back()");
 		script.println("</script>");
 	}
+	}
 %>
+
+</head>
+<body>
 	<div class="loginbox">
 	<!-- method는 차후에 "post"로 변경하기!!!! -->
 	<form method="get" class="loginForm" name="login" action="loginAction.jsp">

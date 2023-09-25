@@ -54,14 +54,14 @@ public class PlayerDAO {
 	}
 
 	// 포지션별 선수 리스트 (Select)
-	public ArrayList<PlayerDTO> selectPosition() throws SQLException {
+	public ArrayList<PlayerDTO> selectPosition(int position) throws SQLException {
 
 		Connection conn = pool.getConnection();
 		String sql = "select * from TBL_Player where pl_position= ?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 
 		// sql ? 값에 PlayerDTO 객체의 id 집어넣음.
-		pstmt.setInt(1, player.getPlPosition());
+		pstmt.setInt(1, position);
 
 		// execute (sql)
 		ResultSet result = pstmt.executeQuery();
@@ -81,13 +81,13 @@ public class PlayerDAO {
 		result.close();
 		pstmt.close();
 		pool.releaseConnection(conn); // 커넥션을 반환
-
+		System.out.println(playerList);
 		return playerList;
 
 	}
 
 	// 선수 디테일 (Select)
-	public PlayerDTO playerDetail() throws SQLException {
+	public PlayerDTO playerDetail(int plId) throws SQLException {
 		Connection conn = pool.getConnection();
 		// sql문 작성
 		String sql = "SELECT pl_id, pl_name, pl_position, TO_CHAR(pl_birth, 'YYYY-MM-DD') AS pl_birth, pl_backNo, pl_physical, Pl_PnH, pl_subject, pl_contents, regdate, pl_imgname, pl_like, pl_memName\r\n"
@@ -95,7 +95,7 @@ public class PlayerDAO {
 		// Statement 생성
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		// sql ? 값에 PlayerDTO 객체의 필드 값을 집어넣음.
-		pstmt.setInt(1, player.getPlId());
+		pstmt.setInt(1, plId);
 
 		// result에 쿼리 실행 값을 할당
 		ResultSet result = pstmt.executeQuery();
@@ -127,7 +127,7 @@ public class PlayerDAO {
     }
 	
 	// 선수 등록 (Insert)
-	public int playerInsert() throws SQLException {
+	public int playerInsert(PlayerDTO player, MemberDTO member) throws SQLException {
 		Connection conn = pool.getConnection();
 		// sql문 작성
 
@@ -161,7 +161,7 @@ public class PlayerDAO {
 	}
 
 	// 선수정보변경 (Update)
-	public int playerUpdate() throws SQLException {
+	public int playerUpdate(PlayerDTO player, MemberDTO member) throws SQLException {
 
 		Connection conn = pool.getConnection();
 		// sql문 작성
@@ -199,13 +199,13 @@ public class PlayerDAO {
 	}
 
 	// 선수 삭제 (Delete)
-	public int playerDelete() throws SQLException {
+	public int playerDelete(int plId) throws SQLException {
 		Connection conn = pool.getConnection();
 
 		String sql = "DELETE FROM TBL_PLAYER WHERE pl_id = ?";
 
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, player.getPlId());
+		pstmt.setInt(1, plId);
 		// result에 쿼리 실행 값을 할당
 
 		result = pstmt.executeUpdate();
@@ -215,69 +215,5 @@ public class PlayerDAO {
 		return result;
 	}
 	
-	//포지션 int -> String으로 변경
-	public String changePositionType(int pl_position) {
-		String position = null;
-		
-		switch (pl_position) {
-		case 1:
-			position="외야수";
-			break;
-		case 2:
-			position="내야수";
-			break;
-		case 3:
-			position="투수";
-			break;
-		case 4:
-			position="포수";
-			break;
-		case 5:
-			position="감독 & 코치";
-			break;
-		case 6:
-			position="취업선수";
-			break;
-		default:
-			break;
-		}
-		
-		return position;
-	}
-	
-	//PnH 값을 int -> String으로 변경
-		public String changePnHType(int pl_PnH) {
-			String PnH = null;
-			
-			switch (pl_PnH) {
-			case 1:
-				PnH="우투우타";
-				break;
-			case 2:
-				PnH="우투좌타";
-				break;
-			case 3:
-				PnH="좌투우타";
-				break;
-			case 4:
-				PnH="좌투좌타";
-				break;
-			case 5:
-				PnH="우투";
-				break;
-			case 6:
-				PnH="좌투";
-				break;
-			case 7:
-				PnH="우타";
-				break;
-			case 8:
-				PnH="좌타";
-				break;
-			default:
-				break;
-			}
-			
-			return PnH;
-		}
+
 }

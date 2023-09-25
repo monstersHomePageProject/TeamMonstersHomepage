@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="monsters.model.*" %>
-<jsp:useBean id="pservice" type="monsters.model.PlayerDAO" scope="application"/>
+<%@ page import="monsters.model.*, monsters.service.*" %>
+<jsp:useBean id="pservice" type="monsters.service.PlayerService" scope="application"/>
 <jsp:useBean id="p" class="monsters.model.PlayerDTO" scope="request"/>
 <jsp:setProperty property="plId" name="p"/>
 <jsp:setProperty property="player" name="pservice" value="<%=p %>"/>
@@ -14,11 +14,11 @@
 <body>
 	<%
 	int result = 0;
-			PlayerDTO pd = pservice.playerDetail();
-			System.out.println(pd.getPlName()+ "  :  " + pd);
-			String PnH = pservice.changePnHType(pd.getPlPnH());
-			String position = pservice.changePositionType(pd.getPlPosition());
-			request.setAttribute("player", pd);
+			p = pservice.playerDetail();
+			System.out.println(p.getPlName()+ "  :  " + p);
+			String PnH = pservice.changePnHType(p.getPlPnH());
+			String position = pservice.changePositionType(p.getPlPosition());
+			request.setAttribute("player", p);
 			request.setAttribute("PnH", PnH);
 			request.setAttribute("position", position);
 	%>

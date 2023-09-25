@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="monsters.model.*" %>
-<jsp:useBean id="pservice" type="monsters.model.PlayerDAO" scope="application"/>
+<%@ page import="monsters.model.*, monsters.service.*" %>
+<jsp:useBean id="pservice" type="monsters.service.PlayerService" scope="application"/>
 <jsp:useBean id="p" class="monsters.model.PlayerDTO" scope="request"/>
 <jsp:setProperty property="plId" name="p"/>
 <jsp:setProperty property="player" name="pservice" value="<%=p %>"/>

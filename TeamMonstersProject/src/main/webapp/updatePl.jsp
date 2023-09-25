@@ -2,7 +2,7 @@
     pageEncoding="UTF-8" errorPage="updatePlError.jsp"%>
 <%@page import="monsters.model.*, monsters.service.*"%>
 <jsp:useBean id="player" type="monsters.model.PlayerDTO" scope="request"/>
-<jsp:useBean id="pservice" type="monsters.model.PlayerDAO" scope="application"/>
+<jsp:useBean id="pservice" type="monsters.service.PlayerService" scope="application"/>
 <jsp:useBean id="mservice" type="monsters.service.MemberService" scope="application"/>
 <jsp:useBean id="member" type = "monsters.model.MemberDTO" scope = "session" />
 
