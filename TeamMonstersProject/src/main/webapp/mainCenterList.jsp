@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "java.io.PrintWriter" %>
-<jsp:useBean id="pservice" type = "monsters.service.PlayerService" scope = "application" />
+<jsp:useBean id="pservice" class = "monsters.service.PlayerService" scope = "application" />
 <!DOCTYPE html>
 <html>
 <head>
