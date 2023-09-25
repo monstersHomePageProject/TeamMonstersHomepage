@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" errorPage="mainActionError.jsp"%>
 <%@ page import = "monsters.model.*, monsters.service.*" %>
 <jsp:useBean id="mservice" type = "monsters.service.MemberService" scope = "application" />
 <jsp:useBean id="member" type = "monsters.model.MemberDTO" scope = "session" />
@@ -14,6 +14,8 @@
 		font-size: large;
     	color: #bb50ff;
     	font-weight: bolder;
+    	margin-left: 15px;
+    	margin-top: 25px;
 	}
 	.positionListToggleBtn:hover{
 		cursor: pointer;
