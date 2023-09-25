@@ -3,8 +3,8 @@
 <%@ page import="monsters.model.*" %>
 <jsp:useBean id="mservice" class="monsters.model.MemberDAO" scope="application"/>
 <jsp:useBean id="member" class="monsters.model.MemberDTO" scope="session"/>
-<jsp:setProperty property="mem_id" name="member"/>
-<jsp:setProperty property="mem_pwd" name="member"/>
+<jsp:setProperty property="memId" name="member"/>
+<jsp:setProperty property="memPwd" name="member"/>
 <jsp:setProperty property="user" name="mservice" value="<%=member %>"/>
 <!DOCTYPE html>
 <html>

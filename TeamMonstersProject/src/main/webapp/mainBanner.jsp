@@ -8,13 +8,15 @@
 <style>
 	body{
 		margin: 0;
-		height: 1000px;
+		height: auto;
 		width: 100%;
+		overflow: hidden; /* hidden: 요소가 커져도 scroll이 발생하지 않음. */ 
+		background-color: black;
 		
 	}
 	img{
-		width: 100%;
-		height: 20%;
+		width: 1430px;
+		height: 180px;
 	}
 </style>
 </head>

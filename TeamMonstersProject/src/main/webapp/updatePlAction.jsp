@@ -16,25 +16,26 @@
 </head>
 <body>
 	<%
-	System.out.println("updatePlAction ::" +pl.getPl_id());
-	System.out.println("updatePlAction ::" +pl);
-	System.out.println("updatePlAction :: "+member);
-	int result = pservice.playerUpdate();
-	System.out.println("updatePlAction :: "+pservice.getPlayer());
-	System.out.println(result);
-	if(result == 1){
+	System.out.println("updatePlAction ::" +pl.getPlId());
+			System.out.println("updatePlAction ::" +pl);
+			System.out.println("updatePlAction :: "+member);
+			int result = pservice.playerUpdate();
+			System.out.println("updatePlAction :: "+pservice.getPlayer());
+			System.out.println(result);
+			if(result == 1){
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('"+pl.getPl_name()+"선수정보 변경이 완료되었습니다.')");
-		script.println("location.href = 'positionListAction.jsp?pl_id="+pl.getPl_id()+"'");
+		script.println("alert('"+pl.getPlName()+"선수정보 변경이 완료되었습니다.')");
+		script.println("location.href = 'positionListAction.jsp?plId="+pl.getPlId()+"'");
 		script.println("</script>");
-	}else{
+			}else{
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('선수정보 변경에 실패했습니다.')");
 		script.println("history.back()");
 		script.println("</script>");
-	}
-	 %>
+			}
+		%>
 </body>
 </html>
+	

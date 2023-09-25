@@ -1,85 +1,85 @@
 package monsters.model;
 
 public class MemberDTO {
-	private String mem_id;
-	private String mem_role;
-	private String mem_pwd;
-	private String mem_name;
-	private String mem_email;
-	private String mem_phone;
+	private String memId;
+	private String memRole;
+	private String memPwd;
+	private String memName;
+	private String memEmail;
+	private String memPhone;
 	
 	public MemberDTO() {
 		super();
 	}
 
 	/**
-	 * @param mem_id
-	 * @param mem_role
-	 * @param mem_pwd
-	 * @param mem_name
-	 * @param mem_email
-	 * @param mem_phone
+	 * @param memId
+	 * @param memRole
+	 * @param memPwd
+	 * @param memName
+	 * @param memEmail
+	 * @param memPhone
 	 */
-	public MemberDTO(String mem_id, String mem_role, String mem_pwd, String mem_name, String mem_email,
-			String mem_phone) {
+	public MemberDTO(String memId, String memRole, String memPwd, String memName, String memEmail,
+			String memPhone) {
 		super();
-		this.mem_id = mem_id;
-		this.mem_role = mem_role;
-		this.mem_pwd = mem_pwd;
-		this.mem_name = mem_name;
-		this.mem_email = mem_email;
-		this.mem_phone = mem_phone;
+		this.memId = memId;
+		this.memRole = memRole;
+		this.memPwd = memPwd;
+		this.memName = memName;
+		this.memEmail = memEmail;
+		this.memPhone = memPhone;
 	}
 	
-	public String getMem_id() {
-		return mem_id;
+	public String getMemId() {
+		return memId;
 	}
-	public String getMem_role() {
-		return mem_role;
+	public String getMemRole() {
+		return memRole;
 	}
-	public String getMem_pwd() {
-		return mem_pwd;
+	public String getMemPwd() {
+		return memPwd;
 	}
-	public String getMem_name() {
-		return mem_name;
+	public String getMemName() {
+		return memName;
 	}
-	public String getMem_email() {
-		return mem_email;
+	public String getMemEmail() {
+		return memEmail;
 	}
-	public String getMem_phone() {
-		return mem_phone;
+	public String getMemPhone() {
+		return memPhone;
 	}
-	public void setMem_id(String mem_id) {
-		this.mem_id = mem_id;
+	public void setMemId(String memId) {
+		this.memId = memId;
 	}
-	public void setMem_role(String mem_role) {
-		this.mem_role = mem_role;
+	public void setMemRole(String memRole) {
+		this.memRole = memRole;
 	}
-	public void setMem_pwd(String mem_pwd) {
-		this.mem_pwd = mem_pwd;
+	public void setMemPwd(String memPwd) {
+		this.memPwd = memPwd;
 	}
-	public void setMem_name(String mem_name) {
-		this.mem_name = mem_name;
+	public void setMemName(String memName) {
+		this.memName = memName;
 	}
-	public void setMem_email(String mem_email) {
-		this.mem_email = mem_email;
+	public void setMemEmail(String memEmail) {
+		this.memEmail = memEmail;
 	}
-	public void setMem_phone(String mem_phone) {
-		this.mem_phone = mem_phone;
+	public void setMemPhone(String memPhone) {
+		this.memPhone = memPhone;
 	}
 
 	@Override
 	public String toString() {
-		return "MemberDTO [mem_id=" + mem_id + ", mem_role=" + mem_role + ", mem_pwd=" + mem_pwd + ", mem_name="
-				+ mem_name + ", mem_email=" + mem_email + ", mem_phone=" + mem_phone + "]";
+		return "MemberDTO [mem_id=" + memId + ", mem_role=" + memRole + ", mem_pwd=" + memPwd + ", mem_name="
+				+ memName + ", mem_email=" + memEmail + ", mem_phone=" + memPhone + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((mem_id == null) ? 0 : mem_id.hashCode());
-		result = prime * result + ((mem_pwd == null) ? 0 : mem_pwd.hashCode());
+		result = prime * result + ((memId == null) ? 0 : memId.hashCode());
+		result = prime * result + ((memPwd == null) ? 0 : memPwd.hashCode());
 		return result;
 	}
 
@@ -92,15 +92,15 @@ public class MemberDTO {
 		if (getClass() != obj.getClass())
 			return false;
 		MemberDTO other = (MemberDTO) obj;
-		if (mem_id == null) {
-			if (other.mem_id != null)
+		if (memId == null) {
+			if (other.memId != null)
 				return false;
-		} else if (!mem_id.equals(other.mem_id))
+		} else if (!memId.equals(other.memId))
 			return false;
-		if (mem_pwd == null) {
-			if (other.mem_pwd != null)
+		if (memPwd == null) {
+			if (other.memPwd != null)
 				return false;
-		} else if (!mem_pwd.equals(other.mem_pwd))
+		} else if (!memPwd.equals(other.memPwd))
 			return false;
 		return true;
 	}

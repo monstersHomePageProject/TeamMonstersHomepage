@@ -3,7 +3,7 @@
 <%@ page import="monsters.model.*" %>
 <jsp:useBean id="pservice" type="monsters.model.PlayerDAO" scope="application"/>
 <jsp:useBean id="p" class="monsters.model.PlayerDTO" scope="request"/>
-<jsp:setProperty property="pl_id" name="p"/>
+<jsp:setProperty property="plId" name="p"/>
 <jsp:setProperty property="player" name="pservice" value="<%=p %>"/>
 <!DOCTYPE html>
 <html>
@@ -13,14 +13,14 @@
 </head>
 <body>
 	<%
-		int result = 0;
-		PlayerDTO pd = pservice.playerDetail();
-		System.out.println(pd.getPl_name()+ "  :  " + pd);
-		String PnH = pservice.changePnHType(pd.getPl_PnH());
-		String position = pservice.changePositionType(pd.getPl_position());
-		request.setAttribute("player", pd);
-		request.setAttribute("PnH", PnH);
-		request.setAttribute("position", position);
+	int result = 0;
+			PlayerDTO pd = pservice.playerDetail();
+			System.out.println(pd.getPlName()+ "  :  " + pd);
+			String PnH = pservice.changePnHType(pd.getPlPnH());
+			String position = pservice.changePositionType(pd.getPlPosition());
+			request.setAttribute("player", pd);
+			request.setAttribute("PnH", PnH);
+			request.setAttribute("position", position);
 	%>
 <jsp:forward page="Player.jsp"/>
 </body>

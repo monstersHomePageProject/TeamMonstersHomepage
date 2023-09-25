@@ -79,17 +79,17 @@
     }
     }
     function checkInput(form) {
-        var pl_physical = form.pl_physical.value;
+        var plPhysical = form.plPhysical.value;
         
         var regex = /^[0-9]+$/; // 
         var regex2 = /^\d{1,3}cm, \d{1,3}kg$/; // 숫자 1-3자리, "cm, " 문자열, 숫자 1-3자리, "kg" 문자열 형식을 검사하는 정규식
 		
-        if (!regex2.test(pl_physical)) {
+        if (!regex2.test(plPhysical)) {
             alert("허용되지 않는 형식입니다. 형식은 (숫자)cm, (숫자)kg 여야 합니다.");
             return false; // 유효성 검사 실패
         }
         
-        if(!regex.test(form.pl_backNo.value)){
+        if(!regex.test(form.plBackNo.value)){
             alert("허용되지 않는 형식입니다. 등번호는 숫자만 입력해야 합니다.");
             return false; // 유효성 검사 실패
         }
@@ -114,11 +114,11 @@
 	<!-- 2. 필드 -->
 	<div class = "field">
         <b>선수 이름</b>
-        <input name = "pl_name" type = "text" required>
+        <input name = "plName" type = "text" required>
     </div>
 	<div class = "field">
         <b>포지션</b>
-        <select name = "pl_position" required>
+        <select name = "plPosition" required>
             <option value="">포지션 선택</option>
             <option value="1">1. 외야수</option>
             <option value="2">2. 내야수</option>
@@ -131,20 +131,21 @@
 	<div class="field birth">
         <b>생년월일</b>
         <div>
-            <input name = "pl_birth" type="date" id="date" max="2050-12-31" min="1900-01-01" value="2000-09-20">
+            <input name = "plBirth" type="date" id="date" max="2050-12-31" min="1900-01-01" value="2000-09-20">
         </div>
     </div>
 	<div class = "field">
         <b>등번호</b>
-        <input name = "pl_backNo" type="text" onkeypress="return checkNumber(event)" required>
+        <input name = "plBackNo" type="text" onkeypress="return checkNumber(event)" required
+        		placeholder="3자리이하 숫자로만 입력해주세요.">
     </div>
 	<div class = "field">
         <b>신체정보</b>
-        <input name = "pl_physical" type = "text" placeholder="ooocm, oookg(형식에 맞춰 입력해주세요.)">
+        <input name = "plPhysical" type = "text" placeholder="ooocm, oookg(형식에 맞춰 입력해주세요.)">
     </div>
 	<div class = "field">
         <b>투타</b>
-        <select name="pl_PnH" required>
+        <select name="plPnH" required>
             <option value="">투타 선택</option>
             <option value="1">1. 우투우타</option>
             <option value="2">2. 우투좌타</option>
@@ -158,15 +159,15 @@
     </div>
 	<div class = "field">
         <b>Subject</b>
-        <textarea name="pl_subject" style="resize: none;" maxlength="100" cols = "60" rows="5" placeholder="선수소개 - 메인(100글자 이내)"></textarea>
+        <textarea name="plSubject" style="resize: none;" maxlength="100" cols = "60" rows="5" placeholder="선수소개 - 메인(100글자 이내)"></textarea>
     </div>
 	<div class = "field">
         <b>Content</b>
-        <textarea name="pl_contents" style="resize: none;" maxlength="200" cols = "60"  rows="5" placeholder="선수소개 - 디테일(200글자 이내)"></textarea>
+        <textarea name="plContents" style="resize: none;" maxlength="200" cols = "60"  rows="5" placeholder="선수소개 - 디테일(200글자 이내)"></textarea>
     </div>
     <div class = "field">
         <b>이미지</b>
-        <input name="pl_imgName" id = "fileUpload" type = "file" accept = ".jpg, .jpeg, .png, .svg" onchange="changeValue(this)">
+        <input name="plImgName" id = "fileUpload" type = "file" accept = ".jpg, .jpeg, .png, .svg" onchange="changeValue(this)">
     </div>
     <input type="submit" value="등록하기">
 </div>

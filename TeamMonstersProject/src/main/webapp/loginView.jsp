@@ -11,14 +11,14 @@
 </head>
 <body>
 	<%
-		int result = (Integer)session.getAttribute("loginResult");
-		System.out.println("login :: "+member);
-		
-		if(result == 1){
-			System.out.println(member.getMem_name());
+	int result = (Integer)session.getAttribute("loginResult");
+			System.out.println("login :: "+member);
+			
+			if(result == 1){
+		System.out.println(member.getMemName());
 			%>
 			<script>
-				let memberName = '<%=member.getMem_name() %>';
+				let memberName = '<%=member.getMemName() %>';
 				alert(memberName+'님, 환영합니다.');
 				location.href = 'main.html';
 			</script>

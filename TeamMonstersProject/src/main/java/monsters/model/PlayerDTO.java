@@ -6,46 +6,46 @@ import java.text.SimpleDateFormat;
 
 public class PlayerDTO {
 	 // num 
-    private int pl_id;
+    private int plId;
     // name 
-    private String pl_name;
+    private String plName;
     // position 
-    private int pl_position;
+    private int plPosition;
     // birth 
-    private String pl_birth;
+    private String plBirth;
     // backNo 
-    private int pl_backNo;
+    private int plBackNo;
     // phys 
-    private String pl_physical;
+    private String plPhysical;
     // PnH 
-    private int pl_PnH;
+    private int plPnH;
     // subject 
-    private String pl_subject;
+    private String plSubject;
     // contents 
-    private String pl_contents;
+    private String plContents;
     // regdate 
     private Date regdate;
     // img 
-    private String pl_imgName;
+    private String plImgName;
     // like 
-    private int pl_like;
+    private int plLike;
     // pl_memId
-    private String pl_memName;
+    private String plMemName;
 	
     /**
-	 * @param pl_id
-	 * @param pl_name
-	 * @param pl_position
-	 * @param pl_birth
-	 * @param pl_backNo
-	 * @param pl_physical
-	 * @param pl_PnH
-	 * @param pl_subject
-	 * @param pl_contents
+	 * @param plId
+	 * @param plName
+	 * @param plPosition
+	 * @param plBirth
+	 * @param plBackNo
+	 * @param plPhysical
+	 * @param plPnH
+	 * @param plSubject
+	 * @param plContents
 	 * @param regdate
-	 * @param pl_imgName
-	 * @param pl_like
-	 * @param pl_memName
+	 * @param plImgName
+	 * @param plLike
+	 * @param plMemName
 	 */
 	
 
@@ -58,110 +58,110 @@ public class PlayerDTO {
 			int pl_PnH, String pl_subject, String pl_contents, Date regdate, String pl_imgName, int pl_like,
 			String pl_memName) {
 		super();
-		this.pl_id = pl_id;
-		this.pl_name = pl_name;
-		this.pl_position = pl_position;
-		this.pl_birth = pl_birth;
-		this.pl_backNo = pl_backNo;
-		this.pl_physical = pl_physical;
-		this.pl_PnH = pl_PnH;
-		this.pl_subject = pl_subject;
-		this.pl_contents = pl_contents;
+		this.plId = pl_id;
+		this.plName = pl_name;
+		this.plPosition = pl_position;
+		this.plBirth = pl_birth;
+		this.plBackNo = pl_backNo;
+		this.plPhysical = pl_physical;
+		this.plPnH = pl_PnH;
+		this.plSubject = pl_subject;
+		this.plContents = pl_contents;
 		this.regdate = regdate;
-		this.pl_imgName = pl_imgName;
-		this.pl_like = pl_like;
-		this.pl_memName = pl_memName;
+		this.plImgName = pl_imgName;
+		this.plLike = pl_like;
+		this.plMemName = pl_memName;
 	}
 
 	//getter
-	public int getPl_id() {
-		return pl_id;
+	public int getPlId() {
+		return plId;
 	}
-	public String getPl_name() {
-		return pl_name;
+	public String getPlName() {
+		return plName;
 	}
-	public int getPl_position() {
-		return pl_position;
+	public int getPlPosition() {
+		return plPosition;
 	}
-	public String getPl_birth() {
-		return pl_birth;
+	public String getPlBirth() {
+		return plBirth;
 	}
-	public int getPl_backNo() {
-		return pl_backNo;
+	public int getPlBackNo() {
+		return plBackNo;
 	}
-	public String getPl_physical() {
-		return pl_physical;
+	public String getPlPhysical() {
+		return plPhysical;
 	}
-	public int getPl_PnH() {
-		return pl_PnH;
+	public int getPlPnH() {
+		return plPnH;
 	}
-	public String getPl_subject() {
-		return pl_subject;
+	public String getPlSubject() {
+		return plSubject;
 	}
-	public String getPl_contents() {
-		return pl_contents;
+	public String getPlContents() {
+		return plContents;
 	}
 	public Date getRegdate() {
 		return regdate;
 	}
-	public String getPl_imgName() {
-		return pl_imgName;
+	public String getPlImgName() {
+		return plImgName;
 	}
-	public int getPl_like() {
-		return pl_like;
+	public int getPlLike() {
+		return plLike;
 	}
-	public String getPl_memName() {
-		return pl_memName;
+	public String getPlMemName() {
+		return plMemName;
 	}
 	
 
 	//setter
-	public void setPl_id(int pl_id) {
-		this.pl_id = pl_id;
+	public void setPlId(int pl_id) {
+		this.plId = pl_id;
 	}
-	public void setPl_name(String pl_name) {
-		this.pl_name = pl_name;
+	public void setPlName(String pl_name) {
+		this.plName = pl_name;
 	}
-	public void setPl_position(int pl_position) {
-		this.pl_position = pl_position;
+	public void setPlPosition(int pl_position) {
+		this.plPosition = pl_position;
 	}
-	public void setPl_birth(String pl_birth){
-		this.pl_birth = pl_birth;
+	public void setPlBirth(String pl_birth){
+		this.plBirth = pl_birth;
 	}
-	public void setPl_backNo(int pl_backNo) {
-		this.pl_backNo = pl_backNo;
+	public void setPlBackNo(int pl_backNo) {
+		this.plBackNo = pl_backNo;
 	}
-	public void setPl_physical(String pl_physical) {
-		this.pl_physical = pl_physical;
+	public void setPlPhysical(String pl_physical) {
+		this.plPhysical = pl_physical;
 	}
-	public void setPl_PnH(int pl_PnH) {
-		this.pl_PnH = pl_PnH;
+	public void setPlPnH(int pl_PnH) {
+		this.plPnH = pl_PnH;
 	}
-	public void setPl_subject(String pl_subject) {
-		this.pl_subject = pl_subject;
+	public void setPlSubject(String pl_subject) {
+		this.plSubject = pl_subject;
 	}
-	public void setPl_contents(String pl_contents) {
-		this.pl_contents = pl_contents;
+	public void setPlContents(String pl_contents) {
+		this.plContents = pl_contents;
 	}
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	public void setPl_imgName(String pl_imgName) {
-		this.pl_imgName = pl_imgName;
+	public void setPlImgName(String pl_imgName) {
+		this.plImgName = pl_imgName;
 	}
-	public void setPl_like(int pl_like) {
-		this.pl_like = pl_like;
+	public void setPlLike(int pl_like) {
+		this.plLike = pl_like;
 	}
-	public void setPl_memName(String pl_memName) {
-		this.pl_memName = pl_memName;
+	public void setPlMemName(String pl_memName) {
+		this.plMemName = pl_memName;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + pl_id;
-		result = prime * result + ((pl_name == null) ? 0 : pl_name.hashCode());
+		result = prime * result + plId;
+		result = prime * result + ((plName == null) ? 0 : plName.hashCode());
 		return result;
 	}
 
@@ -174,22 +174,22 @@ public class PlayerDTO {
 		if (getClass() != obj.getClass())
 			return false;
 		PlayerDTO other = (PlayerDTO) obj;
-		if (pl_id != other.pl_id)
+		if (plId != other.plId)
 			return false;
-		if (pl_name == null) {
-			if (other.pl_name != null)
+		if (plName == null) {
+			if (other.plName != null)
 				return false;
-		} else if (!pl_name.equals(other.pl_name))
+		} else if (!plName.equals(other.plName))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "PlayerDTO [pl_id=" + pl_id + ", pl_name=" + pl_name + ", pl_position=" + pl_position + ", pl_birth="
-				+ pl_birth + ", pl_backNo=" + pl_backNo + ", pl_physical=" + pl_physical + ", pl_PnH=" + pl_PnH
-				+ ", pl_subject=" + pl_subject + ", pl_contents=" + pl_contents + ", regdate=" + regdate
-				+ ", pl_imgName=" + pl_imgName + ", pl_like=" + pl_like + ", pl_memName=" + pl_memName + "]";
+		return "PlayerDTO [pl_id=" + plId + ", pl_name=" + plName + ", pl_position=" + plPosition + ", pl_birth="
+				+ plBirth + ", pl_backNo=" + plBackNo + ", pl_physical=" + plPhysical + ", pl_PnH=" + plPnH
+				+ ", pl_subject=" + plSubject + ", pl_contents=" + plContents + ", regdate=" + regdate
+				+ ", pl_imgName=" + plImgName + ", pl_like=" + plLike + ", pl_memName=" + plMemName + "]";
 	}
 
 

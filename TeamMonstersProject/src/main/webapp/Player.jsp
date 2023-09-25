@@ -37,23 +37,23 @@
 		String position =(String)request.getAttribute("position");
 	%>
 	<div class="player-card">
-        <img src="./img/<%=player.getPl_imgName() %>" alt="선수1 이미지">
+        <img src="./img/<%=player.getPlImgName()%>" alt="선수1 이미지">
             <div class="info">
-                <h2><%=player.getPl_name() %></h2>
+                <h2><%=player.getPlName()%></h2>
                 <h2>포지션</h2><h4><%=position %></h4>
-                <h2>생년월일</h2><p><%=player.getPl_birth() %></p>
-                <h2>등번호</h2><p><%=player.getPl_backNo() %></p>
-                <h2>신체정보</h2><p><%=player.getPl_physical() %></p>
+                <h2>생년월일</h2><p><%=player.getPlBirth()%></p>
+                <h2>등번호</h2><p><%=player.getPlBackNo()%></p>
+                <h2>신체정보</h2><p><%=player.getPlPhysical()%></p>
                 <h2>투타</h2><p><%=PnH %></p>
-                <h2>내용</h2><p><%=player.getPl_contents() %></p>
+                <h2>내용</h2><p><%=player.getPlContents()%></p>
             </div>
     </div>
     <div class="regdate">
-    	작성자:<p><%=player.getPl_memName() %></p>
+    	작성자:<p><%=player.getPlMemName()%></p>
     	등록일:<p><%=player.getRegdate() %></p>
     </div>
     <div class="Btn">
-    	<a href="playerAction.jsp?pl_id=<%=player.getPl_id() %>"><input type="button" value="변경"></a>
+    	<a href="playerAction.jsp?plId=<%=player.getPlId() %>"><input type="button" value="변경"></a>
 		<input type="button" value="삭제" onclick="confirmDelete()">
     </div>
  <script type="text/javascript">
@@ -62,8 +62,8 @@
 
 	        if (confirmation) {
 	            // 확인을 누르면 deletePlAction 페이지로 이동
-	            var pl_id = '<%= player.getPl_id() %>';
-	            window.location.href = 'deletePlAction.jsp?pl_id=' + pl_id;
+	            var plId = '<%=player.getPlId() %>';
+	            window.location.href = 'deletePlAction.jsp?plId=' + plId;
 	        } else {
 	            // 유저가 취소를 누르면 아무것도 하지 않음
 	        }

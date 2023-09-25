@@ -13,7 +13,7 @@
 <%
 //1. 한글처리 & 받아온 파라미터 변수화
 request.setCharacterEncoding("UTF-8");
-String id = request.getParameter("mem_id");
+String id = request.getParameter("memId");
 
 //3. regDupCheck(ID)메서드
 int result = service.regDupCheck(id);
@@ -37,7 +37,7 @@ if (result == 1){
 	<!-- <form action="" method="post">
 	action속성에 값이 없으면 기본적으로 자기자신을 불러오지만 중복확인 버튼을 클릭했을때 변경되지않는다.-->	
 	<form action="regDupCheck.jsp" method="post" name="wfr">
-		ID : <input type="text" name="mem_id" value="<%=id%>">
+		ID : <input type="text" name="memId" value="<%=id%>">
 		<input type="submit" value="중복 확인">	 
 	</form>
 </fieldset>
