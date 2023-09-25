@@ -14,6 +14,8 @@
 		font-size: large;
     	color: #bb50ff;
     	font-weight: bolder;
+    	margin-left: 15px;
+    	margin-top: 25px;
 	}
 	.positionListToggleBtn:hover{
 		cursor: pointer;
