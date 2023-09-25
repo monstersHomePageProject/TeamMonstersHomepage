@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" %>
+    pageEncoding="UTF-8" errorPage="deletePlActionError.jsp"%>
 <%@ page import = "java.io.PrintWriter" %>
 <jsp:useBean id="p" class = "monsters.model.PlayerDTO" scope = "request" />
 <jsp:setProperty property="plId" name="p"/>
