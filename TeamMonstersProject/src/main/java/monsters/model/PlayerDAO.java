@@ -54,14 +54,14 @@ public class PlayerDAO {
 	}
 
 	// 포지션별 선수 리스트 (Select)
-	public ArrayList<PlayerDTO> selectPosition() throws SQLException {
+	public ArrayList<PlayerDTO> selectPosition(int position) throws SQLException {
 
 		Connection conn = pool.getConnection();
 		String sql = "select * from TBL_Player where pl_position= ?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 
 		// sql ? 값에 PlayerDTO 객체의 id 집어넣음.
-		pstmt.setInt(1, player.getPlPosition());
+		pstmt.setInt(1, position);
 
 		// execute (sql)
 		ResultSet result = pstmt.executeQuery();
@@ -81,7 +81,7 @@ public class PlayerDAO {
 		result.close();
 		pstmt.close();
 		pool.releaseConnection(conn); // 커넥션을 반환
-
+		System.out.println(playerList);
 		return playerList;
 
 	}
@@ -215,69 +215,5 @@ public class PlayerDAO {
 		return result;
 	}
 	
-	//포지션 int -> String으로 변경
-	public String changePositionType(int pl_position) {
-		String position = null;
-		
-		switch (pl_position) {
-		case 1:
-			position="외야수";
-			break;
-		case 2:
-			position="내야수";
-			break;
-		case 3:
-			position="투수";
-			break;
-		case 4:
-			position="포수";
-			break;
-		case 5:
-			position="감독 & 코치";
-			break;
-		case 6:
-			position="취업선수";
-			break;
-		default:
-			break;
-		}
-		
-		return position;
-	}
-	
-	//PnH 값을 int -> String으로 변경
-		public String changePnHType(int pl_PnH) {
-			String PnH = null;
-			
-			switch (pl_PnH) {
-			case 1:
-				PnH="우투우타";
-				break;
-			case 2:
-				PnH="우투좌타";
-				break;
-			case 3:
-				PnH="좌투우타";
-				break;
-			case 4:
-				PnH="좌투좌타";
-				break;
-			case 5:
-				PnH="우투";
-				break;
-			case 6:
-				PnH="좌투";
-				break;
-			case 7:
-				PnH="우타";
-				break;
-			case 8:
-				PnH="좌타";
-				break;
-			default:
-				break;
-			}
-			
-			return PnH;
-		}
+
 }

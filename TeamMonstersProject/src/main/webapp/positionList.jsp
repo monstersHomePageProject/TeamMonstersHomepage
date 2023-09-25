@@ -1,9 +1,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="monsters.model.*"%>
+<%@page import="monsters.model.*,monsters.service.*"%>
 <jsp:useBean id="playerList" type="java.util.ArrayList" scope="session"/>
-<jsp:useBean id="pservice" type="monsters.model.PlayerDAO" scope="application"/>
+<jsp:useBean id="pservice" type="monsters.service.PlayerService" scope="application"/>
 <!DOCTYPE html>
 <html>
 <head>
