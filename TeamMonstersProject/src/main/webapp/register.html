@@ -1,61 +1,100 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <style>
-    table, td, th {
-    margin-left:auto; 
-    margin-right:auto;
-};
-    </style>
-<meta charset="UTF-8">
-<title>회원가입 화면</title>
-<script type="text/javascript">
-    function checkInput(form) {
+	<style>
+		table,
+		td,
+		th {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		;
+	</style>
+	<meta charset="UTF-8">
+	<title>회원가입 화면</title>
+	<script type="text/javascript">
+		function checkInput(form) {
 			//alert(form.name.value);
 			var result = true;
-            var msg = "";
+			var msg = "";
 			var check = /[^0-9-]/;//숫자와-를 뺀 모든 문자
-			
-			var pwd = document.getElementById("memPwd1");
-			var ckpwd = document.getElementById("memPwd2");
-			
-			if(check.test(form.memPhone.value)){
+
+			var pwd = form.memPwd1.value;;
+			var ckpwd = form.memPwd1.value;;
+
+			if (check.test(form.memPhone.value)) {
 				result = false;
-				msg = "휴대폰 번호는 숫자만 입력해주세요.";}
-			if(pwd !== ckpwd){
+				msg = "휴대폰 번호는 숫자만 입력해주세요.";
+			}
+			if (pwd !== ckpwd) {
 				result = false;
 				msg = "비밀번호가 일치하지 않습니다.";
 			}
-			if(result==false){
-                alert(msg);
-            }
+			if (result == false) {
+				alert(msg);
+			}
 			return result; //form - onsubmit= return true : form.submit()과 동일
 		}
-	function winopen(){
-		window.open("regDupCheck.jsp?memId="+document.form1.memId.value,"","width=500, height=300");
-	}
-</script>
+		function winopen() {
+			window.open("regDupCheck.jsp?memId=" + document.form1.memId.value, "", "width=500, height=300");
+		}
+	</script>
 </head>
+
 <body>
-	<form name="form1" action="registerAction.jsp" onsubmit="return checkInput(form1);" method = "get">
-        <center><h1> 회원 가입 </h1></center>
-        <br><br>
+	<form name="form1" action="registerAction.jsp" onsubmit="return checkInput(form1);" method="get">
+		<center>
+			<h1> 회원 가입 </h1>
+		</center>
+		<br><br>
 		<table>
-			<tr><td>* 이름 </td><td><input name="memName"></td></tr>
-			<tr><td>* ID </td><td><input name="memId" maxlength="20" required><button onclick="winopen()">중복체크</button></td></tr>
-			<tr><td>* PWD </td><td><input id="memPwd1" name="memPwd" maxlength="20" type="password" required></td></tr>
-			<tr><td>* PWD 확인 </td><td><input id="memPwd2" maxlength="20" type="password" required></td></tr>
-			<tr><td>* 이메일 </td><td><input name="memEmail" type="email" placeholder="aa@bb.cc" required></td></tr>
-			<tr><td>* 전화번호 </td><td><input name="memPhone" placeholder="숫자만 입력" required></td></tr>
-			<tr><td>* 구분 </td><td><select name="memRole">
-                    <option value = "guest">1. 팬</option>
-                    <option value = "bplayer">2. 선수</option>
-                    <option value = "admin">3. 관리자</option>
-            </td></tr>
+			<tr>
+				<td>* 이름 </td>
+				<td><input name="memName"></td>
+			</tr>
+			<tr>
+				<td>* ID </td>
+				<td><input name="memId" maxlength="20" required><button onclick="winopen()">중복체크</button></td>
+			</tr>
+			<tr>
+				<td>* PWD </td>
+				<td><input id="memPwd1" name="memPwd" maxlength="20" type="password" required></td>
+			</tr>
+			<tr>
+				<td>* PWD 확인 </td>
+				<td><input id="memPwd2" maxlength="20" type="password" required></td>
+			</tr>
+			<tr>
+				<td>* 이메일 </td>
+				<td><input name="memEmail" type="email" placeholder="aa@bb.cc" required></td>
+			</tr>
+			<tr>
+				<td>* 전화번호 </td>
+				<td><input name="memPhone" placeholder="숫자만 입력" required></td>
+			</tr>
+			<tr>
+				<td>* 구분 </td>
+				<td><select name="memRole">
+						<option value="guest">1. 팬</option>
+						<option value="bplayer">2. 선수</option>
+						<option value="admin">3. 관리자</option>
+				</td>
+			</tr>
 		</table>
-        <br><br>
-			<center><tr><td><button type = "submit">가입하기</button></td></tr></center><br>
-			<center><tr><td><a href="login.html">이미 계정이 있으신가요?</a></td></tr></center>
+		<br><br>
+		<center>
+			<tr>
+				<td><button type="submit">가입하기</button></td>
+			</tr>
+		</center><br>
+		<center>
+			<tr>
+				<td><a href="login.jsp">이미 계정이 있으신가요?</a></td>
+			</tr>
+		</center>
 	</form>
 </body>
+
 </html>

@@ -49,11 +49,11 @@ if (result == 1){
     	//팝업창은 기존창과 종속관계를 가지고 있으므로 opener를 이용하면 된다.
     	//alert("팝업창의 id값"+document.wfr.userid.value + ", 회원가입창의 id값 : " +opener.document.fr.id.value)
     	//6-1. 회원가입페이지의 id값에 아이디중복으로 선택된 id값을 대입.
-    	opener.document.form1.mem_id.value = document.wfr.mem_id.value;
+    	opener.document.form1.memId.value = document.wfr.memId.value;
     	
     	//6-3. 회원가입창 제어
     	//readonly 속성제어
-    	opener.document.form1.mem_id.readOnly=true;
+    	opener.document.form1.memId.readOnly=true;
     	
     	//6-2. 창닫기
     	window.close();

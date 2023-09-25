@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter, monsters.model.*" %> <!-- 자바스크립트 문장을 작성하기 위해 import -->
-<jsp:useBean id="mservice" type="monsters.model.MemberDAO" scope="application"/>
+<%@ page import="monsters.service.*" %>
+<jsp:useBean id="mservice" type="monsters.service.MemberService" scope="application"/>
 <jsp:useBean id="member" type="monsters.model.MemberDTO" scope="session"/>
 <!DOCTYPE html>
 <html>
@@ -36,7 +37,6 @@
 			script.println("history.back()");
 			script.println("</script>");
 		}
-	
 	%>
 </body>
 </html>
