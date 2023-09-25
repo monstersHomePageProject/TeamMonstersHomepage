@@ -5,9 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import monsters.model.ConnectionPool;
-import monsters.model.MemberDTO;
-
 public class MemberDAO {
 
 	private String DBUrl = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -45,7 +42,7 @@ public class MemberDAO {
 	}
 	
 	//로그인 기능(select)
-	public int login() throws SQLException {
+	public MemberDTO login(MemberDTO user) throws SQLException {
 		// 커넥션 생성 (pool로부터 connection을 가져옴.
 		Connection conn = pool.getConnection();
 		// sql문 작성
@@ -54,6 +51,7 @@ public class MemberDAO {
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		//sql ? 값에 MemberDTO 객체의 id 집어넣음.
 		pstmt.setString(1, user.getMemId());
+		System.out.println("DAO : "+user);
 		
 		//ResultSet에 쿼리 실행 값을 할당
 		ResultSet rs = pstmt.executeQuery();
@@ -62,28 +60,22 @@ public class MemberDAO {
 		int result = -2; 
 		//rs.next()를 통해 sql을 통한 값이 저장되었는지 확인
 		if(rs.next()) {
-			//아이디 비밀번호가 일치하면 1 반환
-			if(rs.getString("mem_pwd").equals(user.getMemPwd())) {
-				//select문으로 가져온 레코드로 MemberDTO 객체 생성
-				user = new MemberDTO(rs.getString("mem_id"), rs.getString("mem_role"), rs.getString("mem_pwd"), rs.getString("mem_name"),
+			user = new MemberDTO(rs.getString("mem_id"), rs.getString("mem_role"), rs.getString("mem_pwd"), rs.getString("mem_name"),
 									rs.getString("mem_email"), rs.getString("mem_phone"));  
-				result = 1;
-			}else { // 비밀번호가 다르면 0 반환
-				result = 0;
-			}
-		}else { //아이디가 존재하지 않으면 -1 반환
-			result = -1;
+				System.out.println("DTO 생성 직후 : " + user);
+			}else {
+			user = null;
 		}
 		
 		rs.close(); // ResultSet close
 		pstmt.close(); // Statement close
 		pool.releaseConnection(conn); // 커넥션 반납
-		return result;
+		return user;
 		
 	}
 	
 	//회원가입 기능(insert)
-	public int register() throws SQLException {
+	public int register(MemberDTO user) throws SQLException {
 		// 커넥션 생성 (pool로부터 connection을 가져옴.
 		Connection conn = pool.getConnection();
 		// sql문 작성

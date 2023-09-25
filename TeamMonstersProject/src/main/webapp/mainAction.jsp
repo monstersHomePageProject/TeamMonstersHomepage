@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" errorPage="mainActionError.jsp"%>
-<%@ page import="monsters.model.*, java.util.*" %>
+<%@ page import="monsters.model.*, java.util.*, monsters.service.*" %>
 <jsp:useBean id="pservice" class="monsters.model.PlayerDAO" scope="application"/>
 <jsp:useBean id="player" class="monsters.model.PlayerDTO" scope="session"/>
-<jsp:useBean id="mservice" type="monsters.model.MemberDAO" scope="application"/>
+<jsp:useBean id="mservice" type="monsters.service.MemberService" scope="application"/>
 <jsp:useBean id="member" type = "monsters.model.MemberDTO" scope = "session" />
 <jsp:setProperty property="plPosition" name="player"/>
 <jsp:setProperty property="player" name="pservice" value="<%=player %>"/>
