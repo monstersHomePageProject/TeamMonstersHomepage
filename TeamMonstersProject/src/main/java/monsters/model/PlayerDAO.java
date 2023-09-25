@@ -161,7 +161,7 @@ public class PlayerDAO {
 	}
 
 	// 선수정보변경 (Update)
-	public int playerUpdate() throws SQLException {
+	public int playerUpdate(PlayerDTO player, MemberDTO member) throws SQLException {
 
 		Connection conn = pool.getConnection();
 		// sql문 작성
@@ -199,13 +199,13 @@ public class PlayerDAO {
 	}
 
 	// 선수 삭제 (Delete)
-	public int playerDelete() throws SQLException {
+	public int playerDelete(int plId) throws SQLException {
 		Connection conn = pool.getConnection();
 
 		String sql = "DELETE FROM TBL_PLAYER WHERE pl_id = ?";
 
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, player.getPlId());
+		pstmt.setInt(1, plId);
 		// result에 쿼리 실행 값을 할당
 
 		result = pstmt.executeUpdate();

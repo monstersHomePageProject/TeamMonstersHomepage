@@ -68,11 +68,23 @@ public class PlayerService {
 		return result;
 	}
 	
-		//포지션 int -> String으로 변경
-		public String changePositionType(int pl_position) {
-			String position = null;
+	// 선수정보변경 (Update)
+	public int playerUpdate() throws SQLException {
+		result = db.playerUpdate(player, member);
+		return result;
+	}
+	
+	// 선수 삭제 (Delete)
+	public int playerDelete() throws SQLException {
+		result = db.playerDelete(player.getPlId());
+		return result;
+	}
+	
+	//포지션 int -> String으로 변경
+	public String changePositionType(int pl_position) {
+		String position = null;
 			
-			switch (pl_position) {
+		switch (pl_position) {
 			case 1:
 				position="외야수";
 				break;
@@ -98,11 +110,11 @@ public class PlayerService {
 			return position;
 		}
 		
-		//PnH 값을 int -> String으로 변경
-			public String changePnHType(int pl_PnH) {
-				String PnH = null;
+	//PnH 값을 int -> String으로 변경
+	public String changePnHType(int pl_PnH) {
+		String PnH = null;
 				
-				switch (pl_PnH) {
+		switch (pl_PnH) {
 				case 1:
 					PnH="우투우타";
 					break;
@@ -131,6 +143,6 @@ public class PlayerService {
 					break;
 				}
 				
-				return PnH;
-			}
+			return PnH;
+		}
 }
