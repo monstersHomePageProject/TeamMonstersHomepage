@@ -3,6 +3,7 @@ package monsters.service;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import monsters.model.MemberDTO;
 import monsters.model.PlayerDAO;
 import monsters.model.PlayerDTO;
 
@@ -11,6 +12,7 @@ public class PlayerService {
 	private int result;
 	private PlayerDAO db;
 	private PlayerDTO player;
+	private MemberDTO member;
 	
 	//생성자
 	public PlayerService(PlayerDAO db) {
@@ -41,11 +43,29 @@ public class PlayerService {
 		this.player = player;
 	}
 	
+	
+	public void setMember(MemberDTO member) {
+		this.member = member;
+	}
+
+
 	// 포지션별 선수 리스트 (Select)
 	public ArrayList<PlayerDTO> selectPosition() throws SQLException {
 			int position = player.getPlPosition();
 			ArrayList<PlayerDTO> result = db.selectPosition(position);
 			return result;
+	}
+	
+	// 선수 디테일 (Select)
+		public PlayerDTO playerDetail() throws SQLException {
+			PlayerDTO result = db.playerDetail(player.getPlId());
+			return result;
+		}
+		
+	// 선수 등록 (Insert)
+	public int playerInsert() throws SQLException {
+		result = db.playerInsert(player, member);
+		return result;
 	}
 	
 		//포지션 int -> String으로 변경

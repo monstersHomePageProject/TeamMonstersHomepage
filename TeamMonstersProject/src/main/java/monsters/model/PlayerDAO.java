@@ -87,7 +87,7 @@ public class PlayerDAO {
 	}
 
 	// 선수 디테일 (Select)
-	public PlayerDTO playerDetail() throws SQLException {
+	public PlayerDTO playerDetail(int plId) throws SQLException {
 		Connection conn = pool.getConnection();
 		// sql문 작성
 		String sql = "SELECT pl_id, pl_name, pl_position, TO_CHAR(pl_birth, 'YYYY-MM-DD') AS pl_birth, pl_backNo, pl_physical, Pl_PnH, pl_subject, pl_contents, regdate, pl_imgname, pl_like, pl_memName\r\n"
@@ -95,7 +95,7 @@ public class PlayerDAO {
 		// Statement 생성
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		// sql ? 값에 PlayerDTO 객체의 필드 값을 집어넣음.
-		pstmt.setInt(1, player.getPlId());
+		pstmt.setInt(1, plId);
 
 		// result에 쿼리 실행 값을 할당
 		ResultSet result = pstmt.executeQuery();
@@ -127,7 +127,7 @@ public class PlayerDAO {
     }
 	
 	// 선수 등록 (Insert)
-	public int playerInsert() throws SQLException {
+	public int playerInsert(PlayerDTO player, MemberDTO member) throws SQLException {
 		Connection conn = pool.getConnection();
 		// sql문 작성
 
