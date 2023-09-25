@@ -15,6 +15,11 @@
     	color: #bb50ff;
     	font-weight: bolder;
 	}
+	.positionListToggleBtn:hover{
+		cursor: pointer;
+		color: black;
+		transition: 1s;
+	}
 	.positionListToggle{
 		display: none;
 	}
@@ -35,6 +40,39 @@
 		font-size: medium;
 		font-weight: bold;
     	color: #bb50ff;
+	}
+	.Pos:hover{
+		color: black;
+	}
+	ul{
+		list-style: none;
+	}
+	li{
+		margin-top: 20px;
+		width: max-content;
+	}
+	li:hover{
+		list-style: square;
+	}
+	
+	.insertBtn{
+		margin-top: 60px;
+	    padding: 5px;
+	    width: 180px;
+	    height: 50px;
+	    background-color: #bb50ff;
+	    border-radius: 3px;
+	    border: none;
+	    font-weight: bolder;
+	    font-size: medium;
+	    color: white;
+	}
+	.insertBtn:hover{
+		background-color: black;
+	    color: white;
+	    transition: 0.5s;
+	    cursor: pointer;
+		
 	}
 
 </style>
@@ -61,6 +99,6 @@
 			<li><a class="Pos" href="mainAction.jsp?plPosition=6" target="right">취업선수</a></li>
 		</ul>
 	</div>
-	<a href="insertPl.jsp" target="right"><input type="button" value="선수 등록"></a>
+	<a href="insertPl.jsp" target="right"><input class ="insertBtn" type="button" value="선수 등록"></a>
 </body>
 </html>
