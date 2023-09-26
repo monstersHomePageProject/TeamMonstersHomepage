@@ -11,22 +11,57 @@
 <title>선수 정보</title>
    <style>
         body {
-          font-family: Arial, sans-serif;
-          padding: 20px;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center; /* Center-align the content */
         }
+
         .player-card {
-          border: 1px solid #ccc;
-          padding: 20px;
-          margin-bottom: 20px;
-          display: flex;
-          align-items: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 0 auto; /* Center-align the card */
+            max-width: 800px; /* Adjust the maximum width as needed */
+            display: flex;
         }
+
         .player-card img {
-          max-width: 100px;
-          margin-right: 20px;
+            max-width: 200px;
         }
-        .player-card .info {
-          flex: 1;
+
+        .info {
+            flex: 1;
+            text-align: left; /* Left-align the text within the info div */
+            padding-left: 40px; /* Add padding to separate text from image */
+        }
+
+        h2 {
+            font-size: 24px; /* Increase the font size for headers */
+        }
+
+        h4 {
+            font-size: 18px; /* Adjust the font size for sub-headers */
+        }
+
+        p {
+            font-size: 16px; /* Adjust the font size for paragraphs */
+        }
+
+        .regdate {
+          margin-top: 10px; /* Add some spacing between the card and the "regdate" info */
+          text-align: center; /* Center-align the "regdate" info */
+        }
+
+        /* Button styling class */
+        .custom-button {
+          border-radius: 3px;
+          background-color: #2a009e;
+          color: #fff;
+          font-weight: 900;
+          width: 80px;
+          height: 40px;
+          padding: 0;
+          font-size: 12pt;
+          margin: 5px; /* Add margin between the buttons */
         }
       </style>
 </head>
@@ -37,24 +72,22 @@
 		String position =(String)request.getAttribute("position");
 	%>
 	<div class="player-card">
-        <img src="./img/<%=player.getPlImgName()%>" alt="선수1 이미지">
+        <img src="./img/<%=player.getPlImgName()%>" alt="선수 이미지">
             <div class="info">
                 <h2><%=player.getPlName()%></h2>
-                <h2>포지션</h2><h4><%=position %></h4>
-                <h2>생년월일</h2><p><%=player.getPlBirth()%></p>
-                <h2>등번호</h2><p><%=player.getPlBackNo()%></p>
-                <h2>신체정보</h2><p><%=player.getPlPhysical()%></p>
-                <h2>투타</h2><p><%=PnH %></p>
-                <h2>내용</h2><p><%=player.getPlContents()%></p>
+                <h4><%=position %></h4>
+                <p>생년월일 : <%=player.getPlBirth()%></p>
+                <p>등번호 : <%=player.getPlBackNo()%></p>
+                <p>신체정보 : <%=player.getPlPhysical()%></p>
+                <p>투타 : <%=PnH %></p>
+                <p>내용 : <%=player.getPlContents()%></p>
             </div>
     </div>
-    <div class="regdate">
-    	작성자:<p><%=player.getPlMemName()%></p>
-    	등록일:<p><%=player.getRegdate() %></p>
-    </div>
-    <div class="Btn">
-    	<a href="playerAction.jsp?plId=<%=player.getPlId() %>"><input type="button" value="변경"></a>
-		<input type="button" value="삭제" onclick="confirmDelete()">
+    <div class="regdate"> 작성자: <%=player.getPlMemName()%> | 등록일: <%=player.getRegdate() %> </div>
+    <br>
+    <div>
+    <input type="button" value="변경" onclick="redirectToPlayerAction()" class="custom-button">
+    <input type="button" value="삭제" onclick="confirmDelete()" class="custom-button">
     </div>
  <script type="text/javascript">
  function confirmDelete() {
@@ -68,6 +101,10 @@
 	            // 유저가 취소를 누르면 아무것도 하지 않음
 	        }
 	}
+ function redirectToPlayerAction() {
+     var plId = '<%=player.getPlId() %>';
+     window.location.href = 'playerAction.jsp?plId=' + plId;
+ }
  </script>
 </body>
 </html>
