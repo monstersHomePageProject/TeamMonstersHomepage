@@ -27,8 +27,8 @@
 		justify-content: center;
 	}
 	.logoImg{
-		margin-left: 490px;
-    	margin-right: 400px;
+		margin-left: 540px;
+    	margin-right: 375px;
 	}
 	.memName{
 		width: max-content;

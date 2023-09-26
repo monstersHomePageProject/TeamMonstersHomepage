@@ -72,7 +72,7 @@
 		String position =(String)request.getAttribute("position");
 	%>
 	<div class="player-card">
-        <img src="./img/<%=player.getPlImgName()%>" alt="선수 이미지">
+        <img src="./img/PlayerPic/<%=player.getPlImgName()%>" alt="선수 이미지">
             <div class="info">
                 <h2><%=player.getPlName()%></h2>
                 <h4><%=position %></h4>
