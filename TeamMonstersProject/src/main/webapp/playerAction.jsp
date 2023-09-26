@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" errorPage="playerError.jsp"%>
 <%@ page import="monsters.model.*, monsters.service.*" %>
 <jsp:useBean id="pservice" type="monsters.service.PlayerService" scope="application"/>
 <jsp:useBean id="p" class="monsters.model.PlayerDTO" scope="request"/>

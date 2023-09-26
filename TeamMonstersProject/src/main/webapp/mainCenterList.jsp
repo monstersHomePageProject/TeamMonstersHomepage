@@ -82,7 +82,7 @@
 		if(deleteResult == 1){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('"+name+"선수정보 변경이 완료되었습니다.')");
+			script.println("alert('"+name+"선수정보가 삭제되었습니다.')");
 			script.println("location.href = 'mainCenterList.jsp'");
 			script.println("</script>");
 
