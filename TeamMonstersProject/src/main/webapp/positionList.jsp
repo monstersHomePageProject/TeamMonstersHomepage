@@ -13,6 +13,12 @@
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
+      width: max-content;
+      margin: auto;
+    }
+    a{
+      text-decoration-line: none;
+      color: black;
     }
     .player-card {
       border: 1px solid #ccc;
@@ -20,6 +26,7 @@
       margin-bottom: 20px;
       display: flex;
       align-items: center;
+      width: 800px;
     }
     .player-card img {
       max-width: 100px;
@@ -34,8 +41,9 @@
 <%
 	String position = (String)session.getAttribute("position"); 
 %>
+<div class="playerList">
 <div>
-	<h2><%=position%></h2> <!-- 포지션명이 들어감. -->
+	<h1>⚾<%=position%></h1> <!-- 포지션명이 들어감. -->
 </div>
 <!-- mainAction.jsp에서 결과를 넘겨받음. -->
 <%
@@ -65,5 +73,6 @@
 <%
 	}
 %>
+</div>
 </body>
 </html>
