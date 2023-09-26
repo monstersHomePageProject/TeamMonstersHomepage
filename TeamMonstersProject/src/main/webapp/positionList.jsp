@@ -60,7 +60,7 @@
 	<!-- 포지션별 선수 리스트 목록-->
     <div class="player-card">
         <a href="positionListAction.jsp?plId=<%=player.getPlId()%>" target="right">
-  			<img src="./img/<%=player.getPlImgName()%>" alt="선수1 이미지">
+  			<img src="./img/PlayerPic/<%=player.getPlImgName()%>" alt="선수 이미지">
 		</a>
             <div class="info">
                 <h2>
