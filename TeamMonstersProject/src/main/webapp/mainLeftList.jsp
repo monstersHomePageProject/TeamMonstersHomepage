@@ -89,7 +89,7 @@
 <body>
 	<% System.out.println("LeftList :: "+member); %> <!-- DTO가 잘 넘어오는지 체크 -->
 	<div class="positionListToggleBtn" onclick="sideList();">
-	포지션 보기
+		⚾ 포지션 보기
 	</div>
 	<div class="positionListToggle" onclick="sideList();">
 		<ul type="disc">

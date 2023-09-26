@@ -23,7 +23,7 @@
     	width:100%
     }
     img{
-    	width: 1296px;
+    	width: -webkit-fill-available;
     	height: 729px;
     }
     
