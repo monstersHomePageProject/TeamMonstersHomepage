@@ -12,7 +12,7 @@
 	.positionListToggleBtn{
 		cursor: pointer; /* 클릭 커서로 변경 */
 		font-size: large;
-    	color: #bb50ff;
+    	color: #011171;
     	font-weight: bolder;
     	margin-left: 15px;
     	margin-top: 25px;
@@ -41,7 +41,7 @@
 		text-decoration: none;
 		font-size: medium;
 		font-weight: bold;
-    	color: #bb50ff;
+    	color: #011171;
 	}
 	.Pos:hover{
 		color: black;
@@ -62,7 +62,7 @@
 	    padding: 5px;
 	    width: 180px;
 	    height: 50px;
-	    background-color: #bb50ff;
+	    background-color: #011171;
 	    border-radius: 3px;
 	    border: none;
 	    font-weight: bolder;
