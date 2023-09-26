@@ -9,6 +9,7 @@
 </head>
 <body>
 	<%
+	//세션에 null로 바꾼 회원정보가 잘 넘어오면, alert로 로그아웃 메세지 띄우고 로그인 화면으로 넘어감.
 	if(session.getAttribute("member")==null){
 		PrintWriter script = response.getWriter();
 		script.println("<script>");

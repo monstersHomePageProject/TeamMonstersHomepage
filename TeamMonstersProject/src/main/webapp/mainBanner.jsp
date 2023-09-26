@@ -39,7 +39,7 @@
 	if(member.getMemId()!=null){
 		%>
 		<div class="memName"><%=member.getMemId() %> 님</div>
-		<button onclick="location.href='logoutAction.jsp?logout=1'">로그아웃</button>
+		<button onclick="location.href='logoutAction.jsp?logout=1'">로그아웃</button><!-- 버튼을 클릭하면 로그아웃이 이루어짐. -->
 		<%} %>
 	</div>
 </body>
