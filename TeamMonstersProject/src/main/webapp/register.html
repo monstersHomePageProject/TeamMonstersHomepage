@@ -123,10 +123,23 @@
       var pwd = form.memPwd1.value;;
       var ckpwd = form.memPwd1.value;;
       
+      var userEnteredNum = form.bplayerNum.value;
+      var correctBplayerNum = "monsters20220606";
+      
       if(dupCheck==0){
 		  result = false;
 		  msg = "아이디 중복체크를 진행해주세요.";
 	  }
+	  
+      if (form.memRole.value === "bplayer") {
+        if (userEnteredNum === "") {
+            result = false;
+            msg = "선수 인증번호를 입력해주세요.";
+        } else if (userEnteredNum !== correctBplayerNum) {
+            result = false;
+            msg = "선수 인증번호가 일치하지 않습니다.";
+        }
+      }
 
       if (check.test(form.memPhone.value)) {
         result = false;
@@ -199,15 +212,18 @@
         <select name="memRole">
           <option value="guest">1. 팬</option>
           <option value="bplayer">2. 선수</option>
-          <option value="admin">3. 관리자</option>
         </select>
       </div>
-      <br>
+      <div class="field">
+        <b>* 선수인증번호 </b>
+        <input name="bplayerNum" placeholder="선수인증번호를 입력해주세요.">
+      </div>
 
       <button class="regButton" type="submit" >가입하기</button>
       <br><br>
       <a id = "regText" href="login.jsp">이미 계정이 있으신가요?</a>
     </div>
+    
   </form>
 </body>
 
