@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" errorPage="playerError.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="monsters.model.*, monsters.service.* "%>
 <jsp:useBean id="player" type="monsters.model.PlayerDTO" scope="request"/>
 <jsp:useBean id="pservice" type="monsters.service.PlayerService" scope="application"/>
@@ -70,6 +71,7 @@
 		//response.sendRedirect("playerError.jsp"); //일부러 오류를 내어 에러페이지 동작 확인하는 코드
 		String PnH =(String)request.getAttribute("PnH");
 		String position =(String)request.getAttribute("position");
+		System.out.println("ROLE :: "+mservice.getUser().getMemRole());
 	%>
 	<div class="player-card">
         <img src="./img/PlayerPic/<%=player.getPlImgName()%>" alt="선수 이미지">
@@ -86,8 +88,14 @@
     <div class="regdate"> 작성자: <%=player.getPlMemName()%> | 등록일: <%=player.getRegdate() %> </div>
     <br>
     <div>
-    <input type="button" value="변경" onclick="redirectToPlayerAction()" class="custom-button">
-    <input type="button" value="삭제" onclick="confirmDelete()" class="custom-button">
+    <c:choose>
+    	<c:when test="${mservice.getUser().getMemRole() eq 'admin'||mservice.getUser().getMemRole() eq 'bplayer' }">
+    		<input type="button" value="변경" onclick="redirectToPlayerAction()" class="custom-button">
+    	</c:when>
+    </c:choose>
+    <c:if test="${mservice.getUser().getMemRole() eq 'admin' }">
+   		<input type="button" value="삭제" onclick="confirmDelete()" class="custom-button">
+    </c:if>
     </div>
  <script type="text/javascript">
  function confirmDelete() {
