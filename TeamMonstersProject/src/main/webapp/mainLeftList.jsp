@@ -58,8 +58,8 @@
 		list-style: square;
 	}
 	
-	.insertBtn{
-		margin-top: 60px;
+	.insertBtn, .manageBtn{
+		margin-top: 20px;
 	    padding: 5px;
 	    width: 180px;
 	    height: 50px;
@@ -70,12 +70,11 @@
 	    font-size: medium;
 	    color: white;
 	}
-	.insertBtn:hover{
+	.insertBtn:hover, .manageBtn:hover{
 		background-color: black;
 	    color: white;
 	    transition: 0.5s;
 	    cursor: pointer;
-		
 	}
 
 </style>
@@ -104,6 +103,7 @@
 	</div>
 	<c:if test="${member.getMemRole() eq 'admin' }">
 		<a href="insertPl.jsp" target="right"><input class ="insertBtn" type="button" value="선수 등록"></a>
+		<a href="ManageMember.jsp" target="right"><input class ="manageBtn" type="button" value="멤버 관리"></a>
 	</c:if>
 </body>
 </html>
