@@ -1,7 +1,10 @@
 package monsters.service;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
 
 import monsters.model.MemberDTO;
 import monsters.model.PlayerDAO;
@@ -63,7 +66,8 @@ public class PlayerService {
 		}
 		
 	// 선수 등록 (Insert)
-	public int playerInsert() throws SQLException {
+	public int playerInsert(HttpServletRequest request) throws SQLException, IOException {
+		PlayerDTO player = db.playerImgUpload(request); 
 		result = db.playerInsert(player, member);
 		return result;
 	}

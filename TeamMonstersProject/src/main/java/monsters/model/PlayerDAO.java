@@ -1,5 +1,6 @@
 package monsters.model;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -7,6 +8,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Enumeration;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class PlayerDAO {
 
@@ -129,6 +136,8 @@ public class PlayerDAO {
 	// 선수 등록 (Insert)
 	public int playerInsert(PlayerDTO player, MemberDTO member) throws SQLException {
 		Connection conn = pool.getConnection();
+		System.out.println(player.getPlBirth());
+		System.out.println(stringToDate(player));
 		// sql문 작성
 
 		String sql = "INSERT INTO TBL_Player\r\n"
@@ -213,6 +222,62 @@ public class PlayerDAO {
 		pstmt.close(); // Statement close
 		pool.releaseConnection(conn); // 커넥션 반납
 		return result;
+	}
+	
+	//선수 이미지 업로드
+	public PlayerDTO playerImgUpload(HttpServletRequest request) throws IOException {
+		
+		//이미지 파일 저장 경로
+		//저장 경로는 서버에 이미지가 저장되는 경로로 설정해야한다. 서버에서 업로드 되어야 저장된 이미지를 서버에서 바로 불러 올 수 있기 때문이다.
+		// 그렇지 않으면 저장된 이미지를 바로 불러올 수가 없다.
+		String location = "C:\\Users\\User\\OneDrive\\바탕 화면\\Java_prt\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\TeamMonstersProject\\img\\PlayerPic";
+		//파일 MAX사이즈 지정
+		int maxSize = 1024 * 1024 * 5; // 키로바이트 * 메가바이트 * 기가바이트
+		//파일 업로드를 수행하는 MultipartRequest객체 생성
+		MultipartRequest multi = new MultipartRequest(request, location, maxSize, "utf-8", new DefaultFileRenamePolicy());
+		//브라우저로부터 받는 파일의 파라미터를 반환
+		Enumeration<?> files = multi.getFileNames();
+		
+		String element="";
+		String fileName="";
+		
+		//multipart 타입으로 파라미터를 전송하면 값을 getParameter로 불러올 수 없기 때문에 브라우저로부터 MultipartRequest에
+		//저장된 값들을 꺼내서 일일히 PlayerDTO의 필드 값에 할당해주어야 한다.
+	    String plName="";	    
+	    String plPosition="";	    
+	    String plBirth="";	   
+	    String plBackNo="";	    
+	    String plPhysical="";	    
+	    String plPnH="";	   
+	    String plSubject="";	    
+	    String plContents="";	       
+	    String plImgName="";
+	    
+	    PlayerDTO player = null;
+		
+		//파일명 반환
+		if(files.hasMoreElements()) { //다음 파일 정보가 있으면,
+			element = (String)files.nextElement();
+			fileName = multi.getFilesystemName(element);
+			
+			//insertPl.jsp로부터 받아온 파라미터 값들
+			plName = multi.getParameter("plName");
+			plPosition = multi.getParameter("plPosition");
+			plBirth = multi.getParameter("plBirth");
+			plBackNo = multi.getParameter("plBackNo");
+			plPhysical = multi.getParameter("plPhysical");
+			plPnH = multi.getParameter("plPnH");
+			plSubject = multi.getParameter("plSubject");
+			plContents = multi.getParameter("plContents");
+			plImgName = fileName;
+			
+			//브라우저로부터 받은 값으로 DTO 생성.
+			player = new PlayerDTO(plName,plPosition,plBirth,plBackNo,plPhysical,
+							plPnH,plSubject,plContents,plImgName);
+		}
+		System.out.println("fileName :: "+fileName);
+		return player;
+		
 	}
 	
 

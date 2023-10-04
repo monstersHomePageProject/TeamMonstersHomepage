@@ -73,6 +73,19 @@ public class PlayerDTO {
 		this.plMemName = pl_memName;
 	}
 
+	public PlayerDTO(String plName, String plPosition, String plBirth, String plBackNo, String plPhysical, String plPnH,
+			String plSubject, String plContents, String plImgName) {
+		this.plName = plName;
+		this.plPosition = Integer.parseInt(plPosition);
+		this.plBirth = plBirth;
+		this.plBackNo = Integer.parseInt(plBackNo);
+		this.plPhysical = plPhysical;
+		this.plPnH = Integer.parseInt(plPnH);
+		this.plSubject = plSubject;
+		this.plContents = plContents;
+		this.plImgName = plImgName;
+	}
+
 	//getter
 	public int getPlId() {
 		return plId;
