@@ -134,10 +134,10 @@
       if (form.memRole.value === "bplayer") {
         if (userEnteredNum === "") {
             result = false;
-            msg = "선수 인증번호를 입력해주세요.";
+            msg = "선수 인증코드를 입력해주세요.";
         } else if (userEnteredNum !== correctBplayerNum) {
             result = false;
-            msg = "선수 인증번호가 일치하지 않습니다.";
+            msg = "선수 인증코드가 일치하지 않습니다.";
         }
       }
 
@@ -216,7 +216,7 @@
       </div>
       <div class="field">
         <b>* 선수인증번호 </b>
-        <input name="bplayerNum" placeholder="선수인증번호를 입력해주세요.">
+        <input name="bplayerNum" placeholder="선수인증코드를 입력해주세요.">
       </div>
 
       <button class="regButton" type="submit" >가입하기</button>
