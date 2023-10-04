@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" errorPage="mainActionError.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import = "monsters.model.*, monsters.service.*" %>
 <jsp:useBean id="mservice" type = "monsters.service.MemberService" scope = "application" />
 <jsp:useBean id="member" type = "monsters.model.MemberDTO" scope = "session" />
@@ -101,6 +102,8 @@
 			<li><a class="Pos" href="mainAction.jsp?plPosition=6" target="right">취업선수</a></li>
 		</ul>
 	</div>
-	<a href="insertPl.jsp" target="right"><input class ="insertBtn" type="button" value="선수 등록"></a>
+	<c:if test="${member.getMemRole() eq 'admin' }">
+		<a href="insertPl.jsp" target="right"><input class ="insertBtn" type="button" value="선수 등록"></a>
+	</c:if>
 </body>
 </html>
