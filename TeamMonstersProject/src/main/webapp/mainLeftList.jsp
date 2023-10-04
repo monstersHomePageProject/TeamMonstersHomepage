@@ -103,7 +103,7 @@
 	</div>
 	<c:if test="${member.getMemRole() eq 'admin' }">
 		<a href="insertPl.jsp" target="right"><input class ="insertBtn" type="button" value="선수 등록"></a>
-		<a href="ManageMember.jsp" target="right"><input class ="manageBtn" type="button" value="멤버 관리"></a>
+		<a href="ManageMemberAction.jsp" target="right"><input class ="manageBtn" type="button" value="멤버 관리"></a>
 	</c:if>
 </body>
 </html>

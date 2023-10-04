@@ -13,6 +13,8 @@ public class MemberDTO {
 		super();
 	}
 
+	
+	
 	/**
 	 * @param memId
 	 * @param memRole
@@ -20,9 +22,10 @@ public class MemberDTO {
 	 * @param memName
 	 * @param memEmail
 	 * @param memPhone
+	 * @param memPlId
 	 */
-	public MemberDTO(String memId, String memRole, String memPwd, String memName, String memEmail,
-			String memPhone) {
+	public MemberDTO(String memId, String memRole, String memPwd, String memName, String memEmail, String memPhone,
+			int memPlId) {
 		super();
 		this.memId = memId;
 		this.memRole = memRole;
@@ -30,8 +33,9 @@ public class MemberDTO {
 		this.memName = memName;
 		this.memEmail = memEmail;
 		this.memPhone = memPhone;
+		this.memPlId = memPlId;
 	}
-	
+
 	public String getMemId() {
 		return memId;
 	}
