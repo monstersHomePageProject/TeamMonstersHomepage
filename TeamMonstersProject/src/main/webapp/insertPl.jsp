@@ -74,8 +74,6 @@
         alert("올바른 파일 확장자가 아닙니다. .jpg, .jpeg, .png 파일만 업로드 가능합니다.");
         // 파일 입력 필드 초기화
         input.value = '';
-    } else {
-        $(".file span").text(selectedFile.name);
     }
     }
     function checkInput(form) {
@@ -106,7 +104,7 @@
   	return false;
 	}
 </script>
-<form name="insertForm" action="insertPlAction.jsp" onsubmit="return checkInput(insertForm);" method="get" enctype="multipart/form-data">
+<form name="insertForm" action="insertPlAction.jsp" onsubmit="return checkInput(insertForm);" method="post" enctype="multipart/form-data">
 <div class = "bbplayer">
 	<!-- 1. 로고 -->
 	<img class="logo" src="./img/logo.png">

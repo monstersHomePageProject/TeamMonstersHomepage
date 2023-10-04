@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "monsters.model.*, monsters.service.*" %>
-<jsp:useBean id="p" class = "monsters.model.PlayerDTO" scope = "page" />
-<jsp:setProperty property="*" name="p" />
 <jsp:useBean id="pservice" class = "monsters.service.PlayerService" scope = "application" />
 <jsp:useBean id="member" type = "monsters.model.MemberDTO" scope = "session" />
-<jsp:setProperty property="player" name ="pservice" value = "<%= p %>" />
 <jsp:setProperty property="member" name ="pservice" value = "<%=member %>" />
 
 <!DOCTYPE html>
@@ -17,9 +14,9 @@
 <body>
 <%
 
-	System.out.println(p);
 	System.out.println("insertPlAction :: "+member);
-	int result = pservice.playerInsert();
+	request.setCharacterEncoding("utf-8");
+	int result = pservice.playerInsert(request);
 	request.setAttribute("insertResult", result);
 	 %>
 <jsp:forward page="mainCenterList.jsp"/>
