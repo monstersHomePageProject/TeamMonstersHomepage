@@ -112,6 +112,8 @@
   <meta charset="UTF-8">
   <title>회원가입 화면</title>
   <script type="text/javascript">
+	  
+    var dupCheck = 0;
     function checkInput(form) {
       //alert(form.name.value);
       var result = true;
@@ -120,6 +122,11 @@
 
       var pwd = form.memPwd1.value;;
       var ckpwd = form.memPwd1.value;;
+      
+      if(dupCheck==0){
+		  result = false;
+		  msg = "아이디 중복체크를 진행해주세요.";
+	  }
 
       if (check.test(form.memPhone.value)) {
         result = false;
@@ -135,7 +142,15 @@
       return result; //form - onsubmit= return true : form.submit()과 동일
     }
     function winopen() {
-      window.open("regDupCheck.jsp?memId=" + document.form1.memId.value, "", "width=500, height=300");
+		if(document.form1.memId.value =="" || document.form1.memId.value.length < 0){
+			alert("아이디를 먼저 입력해주세요")
+			document.form1.memId.focus();
+		}else{
+			//2. 회원정보아이디를 가지고 있는 지 체크하려면 DB에 접근해야한다.
+			//자바스크립트로 어떻게 DB에 접근할까? => 파라미터로 id값을 가져가서 jsp페이지에서 진행하면 된다.
+	      window.open("regDupCheck.jsp?memId=" + document.form1.memId.value, "", "width=500, height=300");
+	      dupCheck = 1;
+		}
     }
   </script>
 </head>
@@ -157,7 +172,7 @@
         <b>* ID </b>
         <div id="info_id">
         <input name="memId" maxlength="20" required>
-        <button onclick="winopen()">중복체크</button>
+        <button type = "button" onclick="winopen()">중복체크</button>
         </div>
       </div>
       <div class="field">
