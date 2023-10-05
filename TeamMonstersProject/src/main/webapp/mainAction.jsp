@@ -16,7 +16,6 @@
 <title>mainAction</title>
 </head>
 <body>
-<!-- 로그인을 하지 않고 들어왔을 때의 error 처리 필요 -->
 	<%
 	System.out.println("mainAction :: "+member); //DTO가 잘 넘어오는지 체크
 		playerList = pservice.selectPosition();

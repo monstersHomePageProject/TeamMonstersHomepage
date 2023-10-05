@@ -74,6 +74,7 @@
 	}
 %>
 </table>
+<a href="mainLeftListAction.jsp"><input class ="backList" type="button" value="목록으로 돌아가기"></a>
 </div>
 </body>
 </html>
