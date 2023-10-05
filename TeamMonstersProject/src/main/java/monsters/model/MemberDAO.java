@@ -140,7 +140,7 @@ public class MemberDAO {
 	public ArrayList<MemberDTO> selectMember() throws SQLException {
 
 		Connection conn = pool.getConnection();
-		String sql = "select * from TBL_Member";
+		String sql = "select * from TBL_Member where mem_role IN ('bplayer', 'guest') order by mem_role, mem_name";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 
 		// execute (sql)
@@ -181,5 +181,62 @@ public class MemberDAO {
 		pstmt.close(); // Statement close
 		pool.releaseConnection(conn); // 커넥션 반납
 		return result;
+	}
+	
+	//멤버 디테일(Select)
+	public MemberDTO memberDetail() throws SQLException {
+		Connection conn = pool.getConnection();
+		// sql문 작성
+		String sql = "SELECT mem_id, mem_role, mem_pwd, mem_name, mem_email, mem_phone, mem_plid\r\n"
+				+ "FROM TBL_MEMBER WHERE mem_id = ?";
+		// Statement 생성
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		// sql ? 값에 PlayerDTO 객체의 필드 값을 집어넣음.
+		pstmt.setString(1, user.getMemId());
+
+		// result에 쿼리 실행 값을 할당
+		ResultSet result = pstmt.executeQuery();
+
+		PlayerDTO player = null;
+
+		while (result.next()) {
+			user = new MemberDTO(result.getString("mem_id"), result.getString("mem_role"), result.getString("mem_pwd"),
+					result.getString("mem_name"), result.getString("mem_email"), result.getString("mem_phone"),
+					result.getInt("mem_plid"));
+		}
+		// 멤버 정보 출력(Console)
+		System.out.println(user);
+
+		pstmt.close(); // Statement close
+		pool.releaseConnection(conn); // 커넥션 반납
+
+		return user;
+	}
+	
+	public int memberUpdate() throws SQLException {
+
+		Connection conn = pool.getConnection();
+		// sql문 작성
+
+		System.out.println("DAO.memberUpdate (user) : "  + user);
+		
+		String sql = "UPDATE TBL_MEMBER SET\r\n" 
+				+ "    mem_role = ?, mem_PlId = ? \r\n" 
+				+ "    WHERE mem_id = ?";
+		// Statement 생성
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		// sql ? 값에 PlayerDTO 객체의 필드 값을 집어넣음.
+		pstmt.setString(1, user.getMemRole());
+		pstmt.setInt(2, user.getMemPlId());
+		pstmt.setString(3, user.getMemId());
+
+		System.out.println("DAO.memberUpdate : "  + user);
+		// result에 쿼리 실행 값을 할당
+		result = pstmt.executeUpdate();
+
+		pstmt.close(); // Statement close
+		pool.releaseConnection(conn); // 커넥션 반납
+		return result;
+
 	}
 }

@@ -1,22 +1,22 @@
+<%@page import="monsters.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" %>
-<%@ page import = "monsters.model.*, monsters.service.*, java.util.*" %>
-<jsp:useBean id="mservice" type="monsters.service.MemberService" scope="application"/>
-<jsp:useBean id="mmservice" class="monsters.model.MemberDAO" scope="application"/>
-<jsp:useBean id="member" type = "monsters.model.MemberDTO" scope = "session" />
-<jsp:useBean id="us" class="monsters.model.MemberDTO" scope="session"/>
-
+    pageEncoding="UTF-8"%>
+<jsp:useBean id="u" class = "monsters.model.MemberDTO" scope = "request" />
+<jsp:setProperty property="memId" name="u"/>
+<jsp:useBean id = "mmservice" type = "monsters.model.MemberDAO" scope = "application" />
+<jsp:setProperty property="user" name ="mmservice" value = "<%= u %>" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ManageMember</title>
+<title>멤버 정보</title>
 </head>
 <body>
-<% 	
-	ArrayList<MemberDTO> memberList = mmservice.selectMember();
-	session.setAttribute("memberList", memberList);	
-%>
-<jsp:forward page="ManageMember.jsp"/>
+	<%
+	int result = 0;
+	MemberDTO us = mmservice.memberDetail();
+	request.setAttribute("user", us);
+	%>
+<jsp:forward page="MemberUpdate.jsp"/>
 </body>
 </html>

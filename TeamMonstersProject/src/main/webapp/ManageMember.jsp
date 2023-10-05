@@ -84,7 +84,7 @@
      }
 	}
  function forwardToMemberUpdate(memId) {
-     window.location.href = 'MemberUpdate.jsp?memId=' + memId;
+     window.location.href = 'ManageMemberAction.jsp?memId=' + memId;
  }
  </script>
 </body>
