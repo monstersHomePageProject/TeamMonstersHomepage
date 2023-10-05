@@ -31,6 +31,10 @@
 </head>
 <body>
 <div class="memberList">
+
+멤버 목록
+
+<a id = "AllPlayer" href="allPlayerListAction.jsp"> 홈페이지 등록선수 목록 </a>
 <table>
 <%
 	if(memberList.size()==0){ 
