@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.omg.PortableInterceptor.USER_EXCEPTION;
+
 public class MemberDAO {
 
 	private String DBUrl = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -167,13 +169,13 @@ public class MemberDAO {
 	}
 	
 	// 멤버 삭제 (Delete)
-	public int memberDelete() throws SQLException {
+	public int memberDelete(String memId) throws SQLException {
 		Connection conn = pool.getConnection();
 
 		String sql = "DELETE FROM TBL_MEMBER WHERE mem_id = ?";
 
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, user.getMemId());
+		pstmt.setString(1, memId);
 		// result에 쿼리 실행 값을 할당
 
 		result = pstmt.executeUpdate();
@@ -184,7 +186,7 @@ public class MemberDAO {
 	}
 	
 	//멤버 디테일(Select)
-	public MemberDTO memberDetail() throws SQLException {
+	public MemberDTO memberDetail(String memId) throws SQLException {
 		Connection conn = pool.getConnection();
 		// sql문 작성
 		String sql = "SELECT mem_id, mem_role, mem_pwd, mem_name, mem_email, mem_phone, mem_plid\r\n"
@@ -192,7 +194,7 @@ public class MemberDAO {
 		// Statement 생성
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		// sql ? 값에 PlayerDTO 객체의 필드 값을 집어넣음.
-		pstmt.setString(1, user.getMemId());
+		pstmt.setString(1, memId);
 
 		// result에 쿼리 실행 값을 할당
 		ResultSet result = pstmt.executeQuery();
@@ -213,7 +215,7 @@ public class MemberDAO {
 		return user;
 	}
 	
-	public int memberUpdate() throws SQLException {
+	public int memberUpdate(MemberDTO user) throws SQLException {
 
 		Connection conn = pool.getConnection();
 		// sql문 작성
@@ -230,10 +232,11 @@ public class MemberDAO {
 		pstmt.setInt(2, user.getMemPlId());
 		pstmt.setString(3, user.getMemId());
 
-		System.out.println("DAO.memberUpdate : "  + user);
 		// result에 쿼리 실행 값을 할당
 		result = pstmt.executeUpdate();
 
+		System.out.println("DAO.memberUpdate : "  + user);
+		
 		pstmt.close(); // Statement close
 		pool.releaseConnection(conn); // 커넥션 반납
 		return result;

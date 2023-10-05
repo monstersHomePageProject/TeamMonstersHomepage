@@ -3,8 +3,8 @@
     pageEncoding="UTF-8"%>
 <jsp:useBean id="u" class = "monsters.model.MemberDTO" scope = "request" />
 <jsp:setProperty property="memId" name="u"/>
-<jsp:useBean id = "mmservice" type = "monsters.model.MemberDAO" scope = "application" />
-<jsp:setProperty property="user" name ="mmservice" value = "<%= u %>" />
+<jsp:useBean id = "mservice" type = "monsters.service.MemberService" scope = "application" />
+<jsp:setProperty property="user" name ="mservice" value = "<%= u %>" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,7 @@
 <body>
 	<%
 	int result = 0;
-	MemberDTO us = mmservice.memberDetail();
+	MemberDTO us = mservice.memberDetail();
 	request.setAttribute("user", us);
 	%>
 <jsp:forward page="MemberUpdate.jsp"/>
