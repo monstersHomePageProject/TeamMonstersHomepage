@@ -2,7 +2,7 @@
     pageEncoding="UTF-8" errorPage="playerError.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="monsters.model.*, monsters.service.* "%>
-<jsp:useBean id="player" type="monsters.model.PlayerDTO" scope="request"/>
+<jsp:useBean id="player" type="monsters.model.PlayerDTO" scope="session"/>
 <jsp:useBean id="pservice" type="monsters.service.PlayerService" scope="application"/>
 <jsp:useBean id="mservice" type="monsters.service.MemberService" scope="application"/>
 <!DOCTYPE html>
@@ -69,8 +69,8 @@
 <body>
 	<%
 		//response.sendRedirect("playerError.jsp"); //일부러 오류를 내어 에러페이지 동작 확인하는 코드
-		String PnH =(String)request.getAttribute("PnH");
-		String position =(String)request.getAttribute("position");
+		String PnH =(String)session.getAttribute("PnH");
+		String position =(String)session.getAttribute("position");
 		System.out.println("ROLE :: "+mservice.getUser().getMemRole());
 	%>
 	<div class="player-card">

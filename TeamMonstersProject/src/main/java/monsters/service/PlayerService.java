@@ -73,7 +73,9 @@ public class PlayerService {
 	}
 	
 	// 선수정보변경 (Update)
-	public int playerUpdate() throws SQLException {
+	public int playerUpdate(HttpServletRequest request) throws SQLException, IOException {
+		PlayerDTO player = db.updatePlayerImgUpload(request);
+		this.player = player;
 		result = db.playerUpdate(player, member);
 		return result;
 	}
