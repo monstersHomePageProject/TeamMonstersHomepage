@@ -280,6 +280,7 @@ public class PlayerDAO {
 		
 	}
 	
+
 	//선수 이미지 업로드
 		public PlayerDTO updatePlayerImgUpload(HttpServletRequest request) throws IOException {
 			
@@ -335,6 +336,38 @@ public class PlayerDAO {
 			return player;
 			
 		}
+
+	//전체 선수 리스트(selectAll)
+	public ArrayList<PlayerDTO> AllPlayerSelect() throws SQLException {
+
+		Connection conn = pool.getConnection();
+		String sql = "select pl_id, pl_name, pl_position, TO_CHAR(pl_birth, 'YYYY-MM-DD') AS pl_birth, pl_backNo, pl_physical, Pl_PnH, pl_subject, \r\n"
+				+ "		pl_contents, regdate, pl_imgname, pl_like, pl_memName from TBL_Player";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+
+		// execute (sql)
+		ResultSet result = pstmt.executeQuery();
+
+		ArrayList<PlayerDTO> allPlayerList = new ArrayList(); // DB에 저장된 레코드들을 담을 리스트 생성
+		PlayerDTO player = null;
+		// get data
+		while (result.next()) {
+			player = new PlayerDTO(result.getInt("pl_id"), result.getString("pl_name"), result.getInt("pl_position"),
+					result.getString("pl_birth"), result.getInt("pl_backNo"), result.getString("pl_physical"),
+					result.getInt("Pl_PnH"), result.getString("pl_subject"), result.getString("pl_contents"),
+					result.getDate("regdate"), result.getString("pl_imgname"), result.getInt("pl_like"), result.getString("pl_memName"));
+
+			allPlayerList.add(player);
+		}
+
+		result.close();
+		pstmt.close();
+		pool.releaseConnection(conn); // 커넥션을 반환
+		System.out.println(allPlayerList);
+		return allPlayerList;
+
+	}
+
 	
 
 }

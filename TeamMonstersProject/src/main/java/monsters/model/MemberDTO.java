@@ -7,11 +7,14 @@ public class MemberDTO {
 	private String memName;
 	private String memEmail;
 	private String memPhone;
+	private int memPlId;
 	
 	public MemberDTO() {
 		super();
 	}
 
+	
+	
 	/**
 	 * @param memId
 	 * @param memRole
@@ -19,9 +22,10 @@ public class MemberDTO {
 	 * @param memName
 	 * @param memEmail
 	 * @param memPhone
+	 * @param memPlId
 	 */
-	public MemberDTO(String memId, String memRole, String memPwd, String memName, String memEmail,
-			String memPhone) {
+	public MemberDTO(String memId, String memRole, String memPwd, String memName, String memEmail, String memPhone,
+			int memPlId) {
 		super();
 		this.memId = memId;
 		this.memRole = memRole;
@@ -29,8 +33,9 @@ public class MemberDTO {
 		this.memName = memName;
 		this.memEmail = memEmail;
 		this.memPhone = memPhone;
+		this.memPlId = memPlId;
 	}
-	
+
 	public String getMemId() {
 		return memId;
 	}
@@ -48,6 +53,9 @@ public class MemberDTO {
 	}
 	public String getMemPhone() {
 		return memPhone;
+	}
+	public int getMemPlId() {
+		return memPlId;
 	}
 	public void setMemId(String memId) {
 		this.memId = memId;
@@ -67,11 +75,14 @@ public class MemberDTO {
 	public void setMemPhone(String memPhone) {
 		this.memPhone = memPhone;
 	}
+	public void setMemPlId(int memPlId) {
+		this.memPlId = memPlId;
+	}
 
 	@Override
 	public String toString() {
-		return "MemberDTO [mem_id=" + memId + ", mem_role=" + memRole + ", mem_pwd=" + memPwd + ", mem_name="
-				+ memName + ", mem_email=" + memEmail + ", mem_phone=" + memPhone + "]";
+		return "MemberDTO [memId=" + memId + ", memRole=" + memRole + ", memPwd=" + memPwd + ", memName=" + memName
+				+ ", memEmail=" + memEmail + ", memPhone=" + memPhone + ", memPlId=" + memPlId + "]";
 	}
 
 	@Override

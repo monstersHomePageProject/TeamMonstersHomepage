@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class MemberDAO {
 
@@ -60,8 +61,9 @@ public class MemberDAO {
 		int result = -2; 
 		//rs.next()를 통해 sql을 통한 값이 저장되었는지 확인
 		if(rs.next()) {
-			user = new MemberDTO(rs.getString("mem_id"), rs.getString("mem_role"), rs.getString("mem_pwd"), rs.getString("mem_name"),
-									rs.getString("mem_email"), rs.getString("mem_phone"));  
+			user = new MemberDTO(rs.getString("mem_id"), rs.getString("mem_role"), rs.getString("mem_pwd"),
+					rs.getString("mem_name"), rs.getString("mem_email"), rs.getString("mem_phone"),
+					rs.getInt("mem_plid"));  
 				System.out.println("DTO 생성 직후 : " + user);
 			}else {
 			user = null;
@@ -80,8 +82,8 @@ public class MemberDAO {
 		Connection conn = pool.getConnection();
 		// sql문 작성
 		String sql = "INSERT INTO TBL_MEMBER\r\n"
-				+ "    (mem_id, mem_role, mem_pwd, mem_name, mem_email, mem_phone)\r\n"
-				+ "VALUES (?, ?, ?, ?, ?, ?)";
+				+ "    (mem_id, mem_role, mem_pwd, mem_name, mem_email, mem_phone, mem_plid)\r\n"
+				+ "VALUES (?, ?, ?, ?, ?, ?, 0)";
 		//Statement 생성
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		//sql ? 값에 MemberDTO 객체의 필드 값을 집어넣음.
@@ -134,7 +136,107 @@ public class MemberDAO {
 			
 	}
 	
+	//멤버관리의 전체 user 불러오기
+	public ArrayList<MemberDTO> selectMember() throws SQLException {
+
+		Connection conn = pool.getConnection();
+		String sql = "select * from TBL_Member where mem_role IN ('bplayer', 'guest') order by mem_role, mem_name";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+
+		// execute (sql)
+		ResultSet result = pstmt.executeQuery();
+
+		ArrayList<MemberDTO> memberList = new ArrayList(); // DB에 저장된 레코드들을 담을 리스트 생성
+		MemberDTO user = null;
+		
+		// get data
+		while (result.next()) {
+			user = new MemberDTO(result.getString("mem_id"), result.getString("mem_role"), result.getString("mem_pwd"),
+					result.getString("mem_name"), result.getString("mem_email"), result.getString("mem_phone"),
+					result.getInt("mem_plid"));
+
+			memberList.add(user);
+		}
+
+		result.close();
+		pstmt.close();
+		pool.releaseConnection(conn); // 커넥션을 반환
+		System.out.println(memberList);
+		return memberList;
+
+	}
 	
+	// 멤버 삭제 (Delete)
+	public int memberDelete() throws SQLException {
+		Connection conn = pool.getConnection();
+
+		String sql = "DELETE FROM TBL_MEMBER WHERE mem_id = ?";
+
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, user.getMemId());
+		// result에 쿼리 실행 값을 할당
+
+		result = pstmt.executeUpdate();
+
+		pstmt.close(); // Statement close
+		pool.releaseConnection(conn); // 커넥션 반납
+		return result;
+	}
 	
+	//멤버 디테일(Select)
+	public MemberDTO memberDetail() throws SQLException {
+		Connection conn = pool.getConnection();
+		// sql문 작성
+		String sql = "SELECT mem_id, mem_role, mem_pwd, mem_name, mem_email, mem_phone, mem_plid\r\n"
+				+ "FROM TBL_MEMBER WHERE mem_id = ?";
+		// Statement 생성
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		// sql ? 값에 PlayerDTO 객체의 필드 값을 집어넣음.
+		pstmt.setString(1, user.getMemId());
+
+		// result에 쿼리 실행 값을 할당
+		ResultSet result = pstmt.executeQuery();
+
+		PlayerDTO player = null;
+
+		while (result.next()) {
+			user = new MemberDTO(result.getString("mem_id"), result.getString("mem_role"), result.getString("mem_pwd"),
+					result.getString("mem_name"), result.getString("mem_email"), result.getString("mem_phone"),
+					result.getInt("mem_plid"));
+		}
+		// 멤버 정보 출력(Console)
+		System.out.println(user);
+
+		pstmt.close(); // Statement close
+		pool.releaseConnection(conn); // 커넥션 반납
+
+		return user;
+	}
 	
+	public int memberUpdate() throws SQLException {
+
+		Connection conn = pool.getConnection();
+		// sql문 작성
+
+		System.out.println("DAO.memberUpdate (user) : "  + user);
+		
+		String sql = "UPDATE TBL_MEMBER SET\r\n" 
+				+ "    mem_role = ?, mem_PlId = ? \r\n" 
+				+ "    WHERE mem_id = ?";
+		// Statement 생성
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		// sql ? 값에 PlayerDTO 객체의 필드 값을 집어넣음.
+		pstmt.setString(1, user.getMemRole());
+		pstmt.setInt(2, user.getMemPlId());
+		pstmt.setString(3, user.getMemId());
+
+		System.out.println("DAO.memberUpdate : "  + user);
+		// result에 쿼리 실행 값을 할당
+		result = pstmt.executeUpdate();
+
+		pstmt.close(); // Statement close
+		pool.releaseConnection(conn); // 커넥션 반납
+		return result;
+
+	}
 }

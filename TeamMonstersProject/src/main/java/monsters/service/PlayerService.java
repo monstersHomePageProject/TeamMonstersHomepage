@@ -59,6 +59,12 @@ public class PlayerService {
 			return result;
 	}
 	
+	//전체 선수 리스트(select)
+	public ArrayList<PlayerDTO> AllPlayerSelect() throws SQLException {
+		ArrayList<PlayerDTO> result = db.AllPlayerSelect();
+		return result;
+	}
+	
 	// 선수 디테일 (Select)
 		public PlayerDTO playerDetail() throws SQLException {
 			PlayerDTO result = db.playerDetail(player.getPlId());
