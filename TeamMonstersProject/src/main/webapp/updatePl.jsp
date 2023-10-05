@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" errorPage="updatePlError.jsp"%>
 <%@page import="monsters.model.*, monsters.service.*"%>
-<jsp:useBean id="player" type="monsters.model.PlayerDTO" scope="request"/>
+<jsp:useBean id="player" type="monsters.model.PlayerDTO" scope="session"/>
 <jsp:useBean id="pservice" type="monsters.service.PlayerService" scope="application"/>
 <jsp:useBean id="mservice" type="monsters.service.MemberService" scope="application"/>
 <jsp:useBean id="member" type = "monsters.model.MemberDTO" scope = "session" />
@@ -68,7 +68,7 @@
 	System.out.println("updatePl :: "+player);
 	//response.sendRedirect("updatePlError.jsp"); //일부러 오류를 내어 에러페이지 동작 확인하는 코드
 %>
-<form name="updateForm" action="updatePlAction.jsp" onsubmit="return checkInput(insertForm);" method="get" enctype="multipart/form-data">
+<form name="updateForm" action="updatePlAction.jsp" onsubmit="return checkInput(updateForm);" method="post" enctype="multipart/form-data">
 <div class = "bbplayer">
 	<!-- 1. 로고 -->
 	<img class="logo" src="./img/logo.png">
@@ -135,9 +135,11 @@
     </div>
     <div class = "field">
         <b>이미지</b>
-        <input name="plImgName" id = "fileUpload" type = "file" accept = ".jpg, .jpeg, .png, .svg" onchange="changeValue(this)" value = "<%=player.getPlImgName()%>">
-        <input name="plId" type="hidden" value = "<%=player.getPlId()%>"> 
+        <input name="plImgName2" id = "fileUpload" type = "file" accept = ".jpg, .jpeg, .png, .svg" onchange="changeValue(this)">
     </div>
+        <input name="plId" type="hidden" value = "<%=player.getPlId()%>"> 
+        <input name="plMemName" type="hidden" value = "<%=player.getPlMemName()%>"> 
+        <input name="plImgName" type="hidden" value = "<%=player.getPlImgName()%>"> 
     <input type="submit" value="등록하기">
 </div>
 </form>
