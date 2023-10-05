@@ -68,7 +68,7 @@
 	System.out.println("updatePl :: "+player);
 	//response.sendRedirect("updatePlError.jsp"); //일부러 오류를 내어 에러페이지 동작 확인하는 코드
 %>
-<form name="updateForm" action="updatePlAction.jsp" onsubmit="return checkInput(insertForm);" method="get" enctype="multipart/form-data">
+<form name="updateForm" action="updatePlAction.jsp" onsubmit="return checkInput(updateForm);" method="get" enctype="multipart/form-data">
 <div class = "bbplayer">
 	<!-- 1. 로고 -->
 	<img class="logo" src="./img/logo.png">

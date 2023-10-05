@@ -4,8 +4,8 @@
 <%@ page import = "java.io.PrintWriter" %>
 <jsp:useBean id="us" class = "monsters.model.MemberDTO" scope = "request" />
 <jsp:setProperty property="*" name="us" />
-<jsp:useBean id="mmservice" class = "monsters.model.MemberDAO" scope = "application" />
-<jsp:setProperty property="user" name ="mmservice" value = "<%=us %>" />
+<jsp:useBean id="mservice" class = "monsters.service.MemberService" scope = "application" />
+<jsp:setProperty property="user" name ="mservice" value = "<%=us %>" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,14 +14,14 @@
 </head>
 <body>
 <%
-		int result = mmservice.memberUpdate();
-		System.out.println("updatePlAction :: "+mmservice.getUser());
+		int result = mservice.memberUpdate();
+		System.out.println("updateMemAction :: "+ mservice.getUser());
 		System.out.println(result);
 		if(result == 1){
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('"+us.getMemName()+"멤버 정보 변경이 완료되었습니다.')");
-		script.println("location.href = 'ManageMemberAction.jsp?memId="+us.getMemId()+"'");
+		script.println("alert('"+us.getMemName()+" 멤버  정보 변경이 완료되었습니다.')");
+		script.println("location.href = 'mainLeftListAction.jsp?'");
 		script.println("</script>");
 			}else{
 		PrintWriter script = response.getWriter();

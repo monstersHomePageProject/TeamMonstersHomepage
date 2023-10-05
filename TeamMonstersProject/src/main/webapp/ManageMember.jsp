@@ -3,7 +3,6 @@
 <%@page import="monsters.model.*,monsters.service.*"%>
 <jsp:useBean id="mservice" type = "monsters.service.MemberService" scope = "application" />
 <jsp:useBean id="memberList" type="java.util.ArrayList" scope="session"/>
-<jsp:useBean id="mmservice" type="monsters.model.MemberDAO" scope="application"/>
     
 <!DOCTYPE html>
 <html>
@@ -75,6 +74,7 @@
 <%
 	}
 %>
+</table>
 </div>
  <script type="text/javascript">
  function confirmDelete(memName, memId) {

@@ -2,7 +2,6 @@
     pageEncoding="UTF-8" %>
 <%@ page import = "monsters.model.*, monsters.service.*, java.util.*" %>
 <jsp:useBean id="mservice" type="monsters.service.MemberService" scope="application"/>
-<jsp:useBean id="mmservice" class="monsters.model.MemberDAO" scope="application"/>
 <jsp:useBean id="member" type = "monsters.model.MemberDTO" scope = "session" />
 <jsp:useBean id="us" class="monsters.model.MemberDTO" scope="session"/>
 
@@ -14,7 +13,8 @@
 </head>
 <body>
 <% 	
-	ArrayList<MemberDTO> memberList = mmservice.selectMember();
+
+	ArrayList<MemberDTO> memberList = mservice.selectMember();
 	session.setAttribute("memberList", memberList);	
 %>
 <jsp:forward page="ManageMember.jsp"/>

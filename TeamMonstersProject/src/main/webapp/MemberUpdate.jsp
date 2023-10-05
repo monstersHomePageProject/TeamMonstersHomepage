@@ -3,8 +3,6 @@
 <%@page import="monsters.model.*, monsters.service.*"%>
 <jsp:useBean id="mservice" type="monsters.service.MemberService"
 	scope="application" />
-<jsp:useBean id="mmservice" type="monsters.model.MemberDAO"
-	scope="application" />
 <jsp:useBean id="user" class="monsters.model.MemberDTO" scope="request" />
 
 <!DOCTYPE html>
