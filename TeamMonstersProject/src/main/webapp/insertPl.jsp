@@ -76,24 +76,25 @@
         input.value = '';
     }
     }
+	
     function checkInput(form) {
-        var plPhysical = form.plPhysical.value;
         
-        var regex = /^[0-9]+$/; // 
+        var regex = /^\d{1,3}$/; // 숫자 1-3자리만 입력 가능한 정규식.
         var regex2 = /^\d{1,3}cm, \d{1,3}kg$/; // 숫자 1-3자리, "cm, " 문자열, 숫자 1-3자리, "kg" 문자열 형식을 검사하는 정규식
 		
-        if (!regex2.test(plPhysical)) {
+        if (!regex2.test(form.plPhysical.value)) {
             alert("허용되지 않는 형식입니다. 형식은 (숫자)cm, (숫자)kg 여야 합니다.");
             return false; // 유효성 검사 실패
         }
         
         if(!regex.test(form.plBackNo.value)){
-            alert("허용되지 않는 형식입니다. 등번호는 숫자만 입력해야 합니다.");
+            alert("허용되지 않는 형식입니다. 등번호는 3자리 이하 숫자만 입력해야 합니다.");
             return false; // 유효성 검사 실패
         }
 
         return true; // 유효성 검사 성공
     }
+    
 	function checkNumber(event) {
   		if(event.key === '.' 
      	|| event.key === '-'
