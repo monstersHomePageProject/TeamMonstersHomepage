@@ -1,3 +1,6 @@
+# ⚾최강야구 Board Project
+미니 프로젝트 진행에 대한 내용입니다.
+
 ## 기술스택
 <img width="5984" alt="기술스택" src="https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/f92fb7f9-5392-4f04-abf3-45677b2afc1c">
 
