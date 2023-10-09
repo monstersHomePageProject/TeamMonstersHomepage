@@ -1,6 +1,13 @@
 # ⚾최강야구 Board Project
 미니 프로젝트 진행에 대한 내용입니다.
 
+## 🌱프로젝트 구성원
+김태호 <br> &lt;[thkim610](https://github.com/thkim610)&gt;| 김윤설 <br> &lt;[Yseolcoding](https://github.com/Yseolcoding)&gt;
+------------ | ------------- 
+![image](https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/c149c86c-bf71-419a-a254-c14e3e2b5b36) | ![image](https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/1380416e-685c-45d6-a226-b6ab6c6adc43)
+ 
+
+
 ## 기술스택
 <img width="5984" alt="기술스택" src="https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/f92fb7f9-5392-4f04-abf3-45677b2afc1c">
 
