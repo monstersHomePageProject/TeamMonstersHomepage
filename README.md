@@ -30,10 +30,7 @@ https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004
 
 ## 회원가입
 
-
-
-https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/e19ea1f9-e511-436f-8cbb-40276b520565
-
+https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/140488622/d085e2d7-19c7-4081-ae51-7610bfe283f8
 
 
 ## 메인화면
@@ -44,7 +41,7 @@ https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004
 
 ## 선수등록
 
-https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/fb2975c0-6aa0-46ee-9ebb-c85c748ea1c0
+https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/140488622/116b2180-d32c-42d2-9ced-f84900c507a4
 
 
 ## 선수정보 조회
