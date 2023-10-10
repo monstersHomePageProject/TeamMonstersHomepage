@@ -4,62 +4,62 @@
 ## 🌱프로젝트 구성원
 김태호 <br> &lt;[thkim610](https://github.com/thkim610)&gt;| 김윤설 <br> &lt;[Yseolcoding](https://github.com/Yseolcoding)&gt;
 ------------ | ------------- 
-![image](https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/c149c86c-bf71-419a-a254-c14e3e2b5b36) | ![image](https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/1380416e-685c-45d6-a226-b6ab6c6adc43)
+![image](https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/17535535-be05-4ef0-8b5a-107a7ea718ef)|![image](https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/969dffc1-f8e1-450d-9df5-c9b83df24f36)
+
  
 
 
 ## 기술스택
-<img width="5984" alt="기술스택" src="https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/f92fb7f9-5392-4f04-abf3-45677b2afc1c">
+<img width="5984" alt="기술스택" src="https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/c99b97fe-129e-4d34-be73-9b4fa47d136d">
+
 
 ## ERD
-![ERD](https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/eed6ab8f-75ac-4029-95ed-d66ae0f17317)
+![ERD](https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/0b212868-94be-4787-a57c-f1aeb3b9ec44)
 RnR테이블은 2차 목표로 보완중에 있습니다.
 
 # 🎥프로젝트 시연영상
 ## 로그인
 
-
-https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/da5e8d3b-ce4f-4ba5-a69c-1515ef883fa0
+https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/a33c7296-c196-4dfa-8288-84c600124aed
 
 
 ## 로그아웃
 
-
-https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/cc4592bb-827a-407d-9752-bb18854a19d4
+https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/8275bc30-9509-44dd-baf6-b602c4a2a708
 
 
 ## 회원가입
 
 
-https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/952a2b39-eb44-4a91-b922-b0e478cef69a
+
+https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/e19ea1f9-e511-436f-8cbb-40276b520565
+
 
 
 ## 메인화면
 
 
-https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/08aa7da4-b961-4a2e-bc8a-561b11d2229e
+https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/5c054494-9748-4fc9-988b-38d5ac642f76
 
 
 ## 선수등록
 
-
-https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/c9451c49-5e54-42fc-bfb1-1417e8972597
+https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/fb2975c0-6aa0-46ee-9ebb-c85c748ea1c0
 
 
 ## 선수정보 조회
 
-
-https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/16abd13b-36dd-4370-89c4-3061d3c6c025
+https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/d452b33c-cd9b-4359-87bf-61ca21277bc4
 
 
 ## 선수정보 삭제
 
 
-https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/7450fd2d-3be7-416c-b9bd-0eade406f4a7
+https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/4ef325d2-ff92-4d66-ae2b-562232262cfd
 
 
 ## 선수정보 변경
 
 
-https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/d42e213d-848b-4f28-9e8a-08f3774ddf5f
+https://github.com/monstersHomePageProject/TeamMonstersHomepage/assets/112153004/a33e8094-0da2-41a4-a6bb-02278d6a6acd
 
